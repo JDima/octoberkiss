@@ -28,56 +28,75 @@
 <svg width="0" height="0" aria-hidden="true" style="position:absolute">
  <defs>
   <linearGradient id="g-body" x1="0.25" y1="0" x2="1" y2="0.1">
-   <stop offset="0" stop-color="#F2EEE8"/><stop offset="0.5" stop-color="#E2DDD5"/>
-   <stop offset="0.85" stop-color="#C8C2B8"/><stop offset="1" stop-color="#ADA69C"/>
+   <stop offset="0" stop-color="#F0EEEA"/><stop offset="0.45" stop-color="#E4E1DB"/>
+   <stop offset="0.82" stop-color="#CBC7C0"/><stop offset="1" stop-color="#B2ADA6"/>
   </linearGradient>
   <linearGradient id="g-beak" x1="0.92" y1="0.1" x2="0.1" y2="1">
-   <stop offset="0" stop-color="#3B3731"/><stop offset="0.5" stop-color="#5F5951"/>
-   <stop offset="1" stop-color="#8C857C"/>
+   <stop offset="0" stop-color="#413D38"/><stop offset="0.5" stop-color="#635D56"/>
+   <stop offset="1" stop-color="#948E86"/>
   </linearGradient>
   <linearGradient id="g-wing" x1="0.1" y1="0" x2="0.9" y2="1">
    <stop offset="0" stop-color="#FAF8F4"/><stop offset="0.55" stop-color="#E0DAD1"/>
    <stop offset="1" stop-color="#B6AFA5"/>
   </linearGradient>
 
-  <filter id="f-soft" x="-45%" y="-45%" width="190%" height="190%"><feGaussianBlur stdDeviation="10"/></filter>
-  <filter id="f-soft2" x="-45%" y="-45%" width="190%" height="190%"><feGaussianBlur stdDeviation="5"/></filter>
-  <filter id="f-grain"><feTurbulence type="fractalNoise" baseFrequency="1.3" numOctaves="4" seed="13"/><feColorMatrix type="saturate" values="0"/></filter>
+  <filter id="f-soft" x="-45%" y="-45%" width="190%" height="190%"><feGaussianBlur stdDeviation="12"/></filter>
+  <filter id="f-soft2" x="-45%" y="-45%" width="190%" height="190%"><feGaussianBlur stdDeviation="5.5"/></filter>
+  <filter id="f-grain"><feTurbulence type="fractalNoise" baseFrequency="1.25" numOctaves="4" seed="17"/><feColorMatrix type="saturate" values="0"/></filter>
 
-  <path id="p-sil" d="M126,22 C152,22 174,36 174,56
-    C174,78 170,92 172,110 C180,152 194,200 212,252 C234,306 262,370 292,430
-    L244,430 C222,372 194,308 174,256 C154,204 138,152 128,118
-    C122,104 112,95 105,87 C96,77 88,65 88,51 C88,31 104,22 126,22 Z"/>
+  <path id="p-sil" d="M126,16
+    C153,16 175,32 175,58
+    C175,80 170,94 172,110
+    C180,152 194,200 212,252
+    C234,306 262,370 292,430
+    L244,430
+    C222,372 194,308 174,256
+    C154,204 138,152 128,118
+    C124,104 113,98 104,92
+    C94,85 80,75 78,59
+    C77,32 99,16 126,16 Z"/>
   <clipPath id="c-sil"><use href="#p-sil"/></clipPath>
 
   <!-- ░ swan: head + neck (portrait, in the envelope) ░ -->
   <g id="swan-portrait-src">
-    <use href="#p-sil" fill="#95897b" opacity=".15" filter="url(#f-soft)" transform="translate(6,6)"/>
+    <use href="#p-sil" fill="#968B7D" opacity=".13" filter="url(#f-soft)" transform="translate(6,7)"/>
     <use href="#p-sil" fill="url(#g-body)"/>
     <g clip-path="url(#c-sil)">
       <path d="M170,104 C180,150 196,200 214,254 C238,310 268,376 298,440 L360,440 L360,0 Z"
-            fill="#8B8377" opacity=".48" filter="url(#f-soft)"/>
-      <path d="M188,132 C198,178 214,226 234,278 C258,334 288,392 314,442 L360,442 L360,56 Z"
-            fill="#6B635A" opacity=".26" filter="url(#f-soft2)"/>
-      <path d="M118,98 C128,148 146,204 168,260 C190,316 220,378 248,440 L212,448
-               C182,384 154,322 132,266 C112,212 96,150 90,100 Z"
-            fill="#FFFEFB" opacity=".60" filter="url(#f-soft)"/>
-      <ellipse cx="116" cy="46" rx="24" ry="19" fill="#FFFFFF" opacity=".42" filter="url(#f-soft)"/>
-      <ellipse cx="162" cy="52" rx="19" ry="21" fill="#A19992" opacity=".42" filter="url(#f-soft2)"/>
-      <ellipse cx="160" cy="96" rx="16" ry="13" fill="#958D83" opacity=".28" filter="url(#f-soft2)"/>
-      <ellipse cx="112" cy="98" rx="17" ry="11" fill="#9A918A" opacity=".38" filter="url(#f-soft2)"/>
-      <rect x="0" y="0" width="360" height="440" filter="url(#f-grain)" opacity=".14" style="mix-blend-mode:multiply"/>
+            fill="#938B80" opacity=".38" filter="url(#f-soft)"/>
+      <path d="M190,134 C200,180 216,228 236,280 C260,336 290,394 316,442 L360,442 L360,58 Z"
+            fill="#776F66" opacity=".18" filter="url(#f-soft2)"/>
+      <path d="M116,98 C126,148 144,204 166,260 C188,316 218,378 246,440 L210,448
+               C180,384 152,322 130,266 C110,212 94,150 88,100 Z"
+            fill="#FCFAF7" opacity=".5" filter="url(#f-soft)"/>
+      <ellipse cx="162" cy="54" rx="20" ry="26" fill="#A69E95" opacity=".30" filter="url(#f-soft)"/>
+      <ellipse cx="126" cy="98" rx="24" ry="11" fill="#9A9188" opacity=".26" filter="url(#f-soft)"/>
+      <ellipse cx="116" cy="36" rx="26" ry="16" fill="#FFFFFF" opacity=".28" filter="url(#f-soft)"/>
+      <ellipse cx="110" cy="120" rx="13" ry="26" fill="#948B82" opacity=".34" filter="url(#f-soft2)" transform="rotate(-12 110 120)"/>
+      <rect x="30" y="0" width="340" height="450" filter="url(#f-grain)" opacity=".21" style="mix-blend-mode:multiply"/>
     </g>
-    <use href="#p-sil" fill="none" stroke="#7C746A" stroke-width="1" opacity=".38"/>
-    <path d="M96,29 C111,29 119,45 117,57 C115,68 105,71 98,65 C88,56 84,37 96,29 Z" fill="#262320" opacity=".92"/>
-    <path fill="url(#g-beak)" d="M98,30 C78,38 46,56 24,68 C19,71 20,78 26,77
-      C52,72 84,60 100,50 C106,44 105,31 98,30 Z"/>
-    <path d="M27,73 C54,68 85,56 100,46" fill="none" stroke="#A6A099" stroke-width="1.2" opacity=".40" stroke-linecap="round"/>
-    <path d="M106,40 C111,35 120,36 122,43 C123,49 118,53 112,51 C106,49 104,43 106,40 Z" fill="#1E1B18"/>
-    <circle cx="116" cy="41" r="1.6" fill="#FFF" opacity=".72"/>
-    <g stroke="#1E1B18" stroke-width="1.8" stroke-linecap="round" fill="none">
-      <path d="M105,35 C101,32 98,30 95,29"/><path d="M110,33 C108,29 107,27 106,24"/>
-      <path d="M116,32 C115,28 115,26 116,24"/><path d="M122,33 C123,29 124,27 126,25"/>
+    <use href="#p-sil" fill="none" stroke="#7E766C" stroke-width="1" opacity=".36"/>
+
+    <!-- клюв: круто опущен вниз, как на оригинале -->
+    <path fill="url(#g-beak)" d="M92,57
+      C80,81 61,119 46,143 C43,149 48,154 54,149
+      C69,135 87,110 99,89 C104,79 100,60 92,57 Z"/>
+    <!-- тёмное пятно у основания клюва -->
+    <path d="M101,51 C105,60 104,75 97,84 C91,91 82,89 79,79
+             C76,68 82,53 90,49 C94,47 99,47 101,51 Z" fill="#262320" opacity=".94"/>
+    <path d="M54,146 C69,131 86,108 98,88" fill="none" stroke="#A8A29A" stroke-width="1.2" opacity=".38" stroke-linecap="round"/>
+
+    <!-- глаз с тяжёлым веком -->
+    <path d="M106,55 C110,46 126,44 132,52 C137,60 128,68 118,66 C111,64 103,61 106,55 Z" fill="#1E1B18"/>
+    <path d="M106,55 C111,47 127,45 132,52" fill="none" stroke="#141210" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="123" cy="52" r="2.1" fill="#FFF" opacity=".7"/>
+    <!-- длинные загнутые ресницы -->
+    <g stroke="#1E1B18" stroke-width="1.9" stroke-linecap="round" fill="none">
+      <path d="M107,50 C99,44 92,36 88,26"/>
+      <path d="M113,46 C106,38 101,29 98,19"/>
+      <path d="M119,44 C114,35 111,26 109,17"/>
+      <path d="M125,44 C122,35 121,27 121,18"/>
+      <path d="M131,46 C130,38 131,30 133,22"/>
     </g>
   </g>
 
@@ -176,30 +195,30 @@
 
           <!-- ░ swan sits between liner and front pocket ░ -->
           <g id="swan-in-env">
-            <g transform="translate(211,520) scale(1.38)">
+            <g transform="translate(281,523) scale(1.35)">
               <use href="#swan-portrait-src"/>
             </g>
           </g>
 
           <!-- front pocket: side flaps + bottom flap -->
           <g id="env-front">
-            <path d="M40,500 L500,832 L40,1206 Z" fill="url(#g-side)"/>
-            <path d="M960,500 L960,1206 L500,832 Z" fill="url(#g-side-r)"/>
-            <path d="M40,1206 L960,1206 L500,834 Z" fill="url(#g-bottom)"/>
+            <path d="M40,500 L500,890 L40,1206 Z" fill="url(#g-side)"/>
+            <path d="M960,500 L960,1206 L500,890 Z" fill="url(#g-side-r)"/>
+            <path d="M40,1206 L960,1206 L500,892 Z" fill="url(#g-bottom)"/>
             <g clip-path="url(#c-pocket)">
-              <path d="M40,500 L500,832" stroke="#D3CCC0" stroke-width="9" opacity=".45" filter="url(#f-fold)"/>
-              <path d="M960,500 L500,832" stroke="#D3CCC0" stroke-width="9" opacity=".38" filter="url(#f-fold)"/>
-              <path d="M40,500 L500,832" stroke="#FFFFFF" stroke-width="2.6" opacity=".85"/>
-              <path d="M960,500 L500,832" stroke="#FFFFFF" stroke-width="2.6" opacity=".7"/>
-              <path d="M40,1206 L500,834 L960,1206" fill="none" stroke="#C9C1B4" stroke-width="8" opacity=".5" filter="url(#f-fold)"/>
-              <path d="M40,1206 L500,834 L960,1206" fill="none" stroke="#FFFFFF" stroke-width="2.4" opacity=".9"/>
+              <path d="M40,500 L500,890" stroke="#D3CCC0" stroke-width="9" opacity=".45" filter="url(#f-fold)"/>
+              <path d="M960,500 L500,890" stroke="#D3CCC0" stroke-width="9" opacity=".38" filter="url(#f-fold)"/>
+              <path d="M40,500 L500,890" stroke="#FFFFFF" stroke-width="2.6" opacity=".85"/>
+              <path d="M960,500 L500,890" stroke="#FFFFFF" stroke-width="2.6" opacity=".7"/>
+              <path d="M40,1206 L500,892 L960,1206" fill="none" stroke="#C9C1B4" stroke-width="8" opacity=".5" filter="url(#f-fold)"/>
+              <path d="M40,1206 L500,892 L960,1206" fill="none" stroke="#FFFFFF" stroke-width="2.4" opacity=".9"/>
               <ellipse cx="500" cy="1180" rx="440" ry="130" fill="#FFFFFF" opacity=".28" filter="url(#f-fold)"/>
-              <path d="M40,500 L500,832 L40,1206 Z" fill="#C9C1B4" opacity=".13"/>
-              <path d="M960,500 L960,1206 L500,832 Z" fill="#BDB5A8" opacity=".10"/>
+              <path d="M40,500 L500,890 L40,1206 Z" fill="#C9C1B4" opacity=".13"/>
+              <path d="M960,500 L960,1206 L500,890 Z" fill="#BDB5A8" opacity=".10"/>
               <rect x="0" y="0" width="1000" height="1250" filter="url(#f-paper-grain)" opacity=".10" style="mix-blend-mode:multiply"/>
             </g>
             <!-- monogram -->
-            <g transform="translate(500,1086) scale(1.12)" stroke="#2E2B27" stroke-width="2.2" fill="none"
+            <g transform="translate(500,1100) scale(1.1)" stroke="#2E2B27" stroke-width="2.2" fill="none"
                stroke-linecap="round" opacity=".78">
               <g id="mono-leaf">
                 <path d="M0,-3 C-10,-14 -27,-17 -32,-30 C-35,-40 -27,-47 -18,-42 C-10,-37 -5,-17 0,-3 Z"/>
