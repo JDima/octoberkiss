@@ -10,9 +10,6 @@
     flightMs   : 3100   // полёт лебедя
   };
 
-  /* геометрия улетающего лебедя: ширина .flyer и пропорции его viewBox */
-  var FLY = { fw: 220, ratio: 768 / 505 };
-
   var $ = function (id) { return document.getElementById(id); };
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -22,8 +19,6 @@
       bar    = $('bar'),
       burger = $('burger'),
       menu   = $('menu'),
-      flyer  = $('flyer'),
-      swanEnv= $('swan-in-env'),
       sound  = $('sound'),
       track  = $('track');
 
@@ -159,80 +154,9 @@
     opened = true;
     startMusic();
     cover.classList.add('is-opening');
-    flySwan();
     setTimeout(reveal, reduce ? 120 : 620);
   }
   openBtn.addEventListener('click', open);
-
-  /* ═══════════  ПОЛЁТ ЛЕБЕДЯ  ═══════════ */
-  function flySwan () {
-    var from = swanEnv.getBoundingClientRect();
-    var fw   = flyer.offsetWidth || FLY.fw;
-    var fh   = fw * FLY.ratio;
-    var vw   = window.innerWidth, vh = window.innerHeight;
-
-    var s0 = Math.max(0.55, Math.min(1.35, (from.width * 1.55) / fw));
-
-    function at (cx, cy, s) { return { x: cx - fw * s / 2, y: cy - fh * s / 2, s: s }; }
-    function kf (p, rot, op) {
-      return {
-        transform: 'translate(' + p.x.toFixed(1) + 'px,' + p.y.toFixed(1) + 'px) rotate(' + rot + 'deg) scale(' + p.s.toFixed(3) + ')',
-        opacity: op
-      };
-    }
-
-    var p0 = at(from.left + from.width * 0.42, from.top + from.height * 0.26, s0);
-    var p1 = at(vw * 0.42, vh * 0.34, s0 * 0.84);
-    var p2 = at(vw * 0.30, vh * 0.13, s0 * 0.54);
-    var p3 = at(vw * 0.10, -vh * 0.16, s0 * 0.30);
-
-    if (reduce) return;
-
-    flyer.style.transform = kf(p0, -5, 1).transform;
-    dropFeathers(p0, fw, s0);
-    flyer.classList.add('is-flying');
-
-    var anim = flyer.animate([
-      Object.assign(kf(p0, -5,  0), { offset: 0,    easing: 'ease-out' }),
-      Object.assign(kf(p0, -9,  1), { offset: 0.07, easing: 'cubic-bezier(.3,0,.4,1)' }),
-      Object.assign(kf(p1, -18, 1), { offset: 0.38, easing: 'cubic-bezier(.4,0,.5,1)' }),
-      Object.assign(kf(p2, -13, .9), { offset: 0.70, easing: 'cubic-bezier(.4,0,.4,1)' }),
-      Object.assign(kf(p3, -20, 0), { offset: 1,    easing: 'cubic-bezier(.4,0,.6,1)' })
-    ], { duration: CFG.flightMs, fill: 'forwards' });
-
-    anim.onfinish = function () {
-      flyer.classList.remove('is-flying');
-      flyer.style.visibility = 'hidden';
-    };
-  }
-
-  /* пёрышки, слетающие вниз в момент взлёта */
-  function dropFeathers (p0, fw, s0) {
-    var box = $('feathers');
-    if (!box) return;
-    var list = box.querySelectorAll('.feather');
-    var vh = window.innerHeight;
-
-    Array.prototype.forEach.call(list, function (f, i) {
-      var x0 = p0.x + fw * s0 * (0.24 + i * 0.16);
-      var y0 = p0.y + fw * s0 * FLY.ratio * (0.14 + i * 0.05);
-      var drift = (i % 2 ? 1 : -1) * (34 + i * 20);
-      var end = vh * (0.78 + i * 0.07);
-      var sc = 0.8 + i * 0.18;
-
-      f.animate([
-        { transform: 'translate(' + x0 + 'px,' + y0 + 'px) rotate(' + (-16 + i * 12) + 'deg) scale(' + sc + ')', opacity: 0, offset: 0 },
-        { transform: 'translate(' + (x0 + drift * 0.3) + 'px,' + (y0 + 60) + 'px) rotate(' + (10 + i * 8) + 'deg) scale(' + sc + ')', opacity: 0.95, offset: 0.18 },
-        { transform: 'translate(' + (x0 - drift * 0.5) + 'px,' + (y0 + (end - y0) * 0.45) + 'px) rotate(' + (-22 - i * 6) + 'deg) scale(' + sc + ')', opacity: 0.9, offset: 0.55 },
-        { transform: 'translate(' + (x0 + drift) + 'px,' + end + 'px) rotate(' + (26 + i * 10) + 'deg) scale(' + sc + ')', opacity: 0, offset: 1 }
-      ], {
-        duration: 3600 + i * 700,
-        delay: 140 + i * 260,
-        easing: 'cubic-bezier(.34,.12,.5,1)',
-        fill: 'forwards'
-      });
-    });
-  }
 
   /* ═══════════  ПОЯВЛЕНИЕ БЛОКОВ  ═══════════ */
   function revealInit () {

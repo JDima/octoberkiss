@@ -16,7 +16,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23EBE5DA'/%3E%3Cpath d='M36 10c7 0 12 5 12 10 0 6-4 9-4 13 2 14 8 26 14 31H44c-4-8-9-19-12-27-3-7-6-12-8-15-3-4-6-8-6-13 0-6 6-9 12-9z' fill='%23D8D2C8' stroke='%238A8277' stroke-width='1.6'/%3E%3Cpath d='M27 12c-6 3-16 10-22 15-2 2 0 5 3 4 8-3 17-8 22-12 2-3 1-8-3-7z' fill='%23343029'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="css/style.css">
 <noscript><style>
-  #cover,#flyer,#feathers,#bird,#sound,.burger{display:none!important}
+  #cover,#sound,.burger{display:none!important}
   body.is-locked{position:static!important;overflow:auto!important;height:auto!important;inset:auto!important}
   #site{opacity:1!important;visibility:visible!important}
   [data-rv]>*{opacity:1!important;transform:none!important}
@@ -27,23 +27,6 @@
 <svg width="0" height="0" aria-hidden="true" style="position:absolute">
  <defs>
 
-
-  <linearGradient id="g-fade" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0" stop-color="#fff"/><stop offset="0.54" stop-color="#fff"/>
-    <stop offset="0.8" stop-color="#fff" stop-opacity="0"/>
-  </linearGradient>
-  <mask id="m-fade"><rect x="-20" y="0" width="560" height="768" fill="url(#g-fade)"/></mask>
-
-  <!-- ░ пёрышко ░ -->
-  <g id="p-feather">
-    <path d="M22,3 C33,22 38,52 31,79 C29,88 25,92 22,92 C19,92 15,88 13,79
-             C6,52 11,22 22,3 Z" fill="#F4F1EA" stroke="#9E968B" stroke-width="1.1"/>
-    <path d="M22,6 L22,90" stroke="#9E968B" stroke-width="1.1" fill="none" stroke-linecap="round"/>
-    <g stroke="#B9B1A5" stroke-width=".8" fill="none" opacity=".8">
-      <path d="M22,20 L14,30 M22,32 L13,44 M22,46 L14,58 M22,60 L16,70"/>
-      <path d="M22,20 L30,30 M22,32 L31,44 M22,46 L30,58 M22,60 L28,70"/>
-    </g>
-  </g>
 
   <!-- ░ маленький летящий лебедь ░ -->
   <path id="p-bird" d="
@@ -358,20 +341,6 @@
     </ul>
   </footer>
 </main>
-
-<!-- ══════════════  УЛЕТАЮЩИЙ ЛЕБЕДЬ  ══════════════ -->
-<div id="flyer" class="flyer" aria-hidden="true">
-  <svg viewBox="0 0 505 768" xmlns="http://www.w3.org/2000/svg">
-    <image class="flyer__swan" href="assets/img/swan.png" x="0" y="0" width="505" height="768"
-           mask="url(#m-fade)"/>
-  </svg>
-</div>
-
-<div id="feathers" class="feathers" aria-hidden="true">
-  <svg viewBox="0 0 44 96" class="feather"><use href="#p-feather"/></svg>
-  <svg viewBox="0 0 44 96" class="feather"><use href="#p-feather"/></svg>
-  <svg viewBox="0 0 44 96" class="feather"><use href="#p-feather"/></svg>
-</div>
 
 <button id="sound" class="sound" type="button" aria-label="Выключить музыку" hidden>
   <svg class="sound__on" viewBox="0 0 24 24" aria-hidden="true">
