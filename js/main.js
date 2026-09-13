@@ -144,6 +144,7 @@
     if (revealed) return;
     revealed = true;
     document.body.classList.remove('is-locked');
+    document.body.classList.add('opened');
     site.setAttribute('aria-hidden', 'false');
     site.classList.add('is-live');
     cover.classList.add('is-gone');
