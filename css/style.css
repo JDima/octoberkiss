@@ -208,7 +208,8 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
 .s--hero .date{ font-size:31px; }
 
 /* разделы с выключкой влево */
-.s--left .s__in{ align-items:flex-start; }
+.s--left{ padding-left:20px; padding-right:20px; }
+.s--left .s__in{ align-items:flex-start; max-width:380px; }
 .s--left .body,
 .s--left .accent{ text-align:left; }
 .s--left .h{ align-self:center; }
