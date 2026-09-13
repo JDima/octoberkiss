@@ -19,17 +19,16 @@ html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; background:var(--pa
 
 body{
   margin:0;
-  background:var(--paper);
+  /* зерно вшито в фон: раньше это был отдельный фиксированный слой
+     с mix-blend-mode на весь экран — он заставлял браузер
+     перерисовывать всё окно на каждом кадре прокрутки */
+  background-color:var(--paper);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.13'/%3E%3C/svg%3E");
   color:var(--ink);
   font-family:var(--serif);
   font-weight:500;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
-}
-body::before{
-  content:""; position:fixed; inset:0; pointer-events:none; z-index:1; opacity:.38;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E");
-  mix-blend-mode:multiply;
 }
 body.is-locked{ overflow:hidden; height:100%; position:fixed; inset:0; width:100%; }
 ::selection{ background:#CBD3E2; color:#3E4A63; }
@@ -46,7 +45,7 @@ body.is-locked{ overflow:hidden; height:100%; position:fixed; inset:0; width:100
 
 .mono{ display:block; width:42px; line-height:0; transition:opacity .5s ease; }
 body.opened .mono{ opacity:0; pointer-events:none; }
-.mono img{ width:100%; height:auto; display:block; mix-blend-mode:multiply; }
+.mono img{ width:100%; height:auto; display:block; }
 
 .burger{
   width:34px; height:34px; padding:0; border:0; background:none; cursor:pointer;
@@ -140,11 +139,11 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
 .s--place{ padding-bottom:0; justify-content:flex-start; padding-top:calc(var(--bar) + 9svh); }
 .s--last{ padding-bottom:8svh; }
 
-[data-rv] > *:not(.frame){ opacity:0; transform:translateY(18px); transition:opacity .9s ease, transform .9s cubic-bezier(.2,.7,.3,1); }
+[data-rv] > *:not(.frame){ opacity:0; transform:translateY(7px); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.3,1); }
 [data-rv].in > *:not(.frame){ opacity:1; transform:none; }
-[data-rv].in > *:nth-child(2){ transition-delay:.14s }
-[data-rv].in > *:nth-child(3){ transition-delay:.26s }
-[data-rv].in > *:nth-child(4){ transition-delay:.36s }
+[data-rv].in > *:nth-child(2){ transition-delay:.06s }
+[data-rv].in > *:nth-child(3){ transition-delay:.12s }
+[data-rv].in > *:nth-child(4){ transition-delay:.18s }
 @media (prefers-reduced-motion: reduce){
   [data-rv] > *:not(.frame){ opacity:1 !important; transform:none !important; transition:none !important; }
   .frame{ opacity:1 !important; }
@@ -228,7 +227,7 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
   display:block; width:58px; margin:0 0 8px auto; margin-right:5%; line-height:0;
   animation:bird-drift 16s ease-in-out infinite;
 }
-.bird img{ width:100%; height:auto; display:block; mix-blend-mode:multiply; opacity:.92; }
+.bird img{ width:100%; height:auto; display:block; opacity:.92; }
 @keyframes bird-drift{
   0%   { transform:translate(0,0)       rotate(0deg); }
   25%  { transform:translate(-14px,6px) rotate(-3deg); }
@@ -308,8 +307,7 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
   left:18px; bottom:calc(20px + env(safe-area-inset-bottom));
   width:34px; height:34px; border-radius:50%;
   display:grid; place-items:center; padding:0;
-  border:1px solid var(--line); background:rgba(238,233,223,.8);
-  backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+  border:1px solid var(--line); background:#EEE9DF;
   color:var(--ink); cursor:pointer; -webkit-tap-highlight-color:transparent;
   opacity:0; transition:opacity .6s ease .4s;
 }
