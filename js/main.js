@@ -11,7 +11,7 @@
   };
 
   /* геометрия улетающего лебедя: ширина .flyer и пропорции его viewBox */
-  var FLY = { fw: 220, ratio: 450 / 360 };
+  var FLY = { fw: 220, ratio: 768 / 505 };
 
   var $ = function (id) { return document.getElementById(id); };
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

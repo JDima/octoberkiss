@@ -26,84 +26,13 @@
 <!-- ══════════════  SVG DEFS (swan, ornaments)  ══════════════ -->
 <svg width="0" height="0" aria-hidden="true" style="position:absolute">
  <defs>
-  <linearGradient id="g-body" x1="0.25" y1="0" x2="1" y2="0.1">
-   <stop offset="0" stop-color="#F0EEEA"/><stop offset="0.45" stop-color="#E4E1DB"/>
-   <stop offset="0.82" stop-color="#CBC7C0"/><stop offset="1" stop-color="#B2ADA6"/>
-  </linearGradient>
-  <linearGradient id="g-beak" x1="0.92" y1="0.1" x2="0.1" y2="1">
-   <stop offset="0" stop-color="#413D38"/><stop offset="0.5" stop-color="#635D56"/>
-   <stop offset="1" stop-color="#948E86"/>
-  </linearGradient>
-  <linearGradient id="g-wing" x1="0.1" y1="0" x2="0.9" y2="1">
-   <stop offset="0" stop-color="#FAF8F4"/><stop offset="0.55" stop-color="#E0DAD1"/>
-   <stop offset="1" stop-color="#B6AFA5"/>
-  </linearGradient>
 
-  <filter id="f-soft" x="-45%" y="-45%" width="190%" height="190%"><feGaussianBlur stdDeviation="12"/></filter>
-  <filter id="f-soft2" x="-45%" y="-45%" width="190%" height="190%"><feGaussianBlur stdDeviation="5.5"/></filter>
-  <filter id="f-grain"><feTurbulence type="fractalNoise" baseFrequency="1.25" numOctaves="4" seed="17"/><feColorMatrix type="saturate" values="0"/></filter>
-
-  <path id="p-sil" d="M126,16
-    C153,16 175,32 175,58
-    C175,80 170,94 172,110
-    C180,152 194,200 212,252
-    C234,306 262,370 292,430
-    L244,430
-    C222,372 194,308 174,256
-    C154,204 138,152 128,118
-    C124,104 113,98 104,92
-    C94,85 80,75 78,59
-    C77,32 99,16 126,16 Z"/>
-  <clipPath id="c-sil"><use href="#p-sil"/></clipPath>
-
-  <!-- ░ swan: head + neck (portrait, in the envelope) ░ -->
-  <g id="swan-portrait-src">
-    <use href="#p-sil" fill="#968B7D" opacity=".13" filter="url(#f-soft)" transform="translate(6,7)"/>
-    <use href="#p-sil" fill="url(#g-body)"/>
-    <g clip-path="url(#c-sil)">
-      <path d="M170,104 C180,150 196,200 214,254 C238,310 268,376 298,440 L360,440 L360,0 Z"
-            fill="#938B80" opacity=".38" filter="url(#f-soft)"/>
-      <path d="M190,134 C200,180 216,228 236,280 C260,336 290,394 316,442 L360,442 L360,58 Z"
-            fill="#776F66" opacity=".18" filter="url(#f-soft2)"/>
-      <path d="M116,98 C126,148 144,204 166,260 C188,316 218,378 246,440 L210,448
-               C180,384 152,322 130,266 C110,212 94,150 88,100 Z"
-            fill="#FCFAF7" opacity=".5" filter="url(#f-soft)"/>
-      <ellipse cx="162" cy="54" rx="20" ry="26" fill="#A69E95" opacity=".30" filter="url(#f-soft)"/>
-      <ellipse cx="126" cy="98" rx="24" ry="11" fill="#9A9188" opacity=".26" filter="url(#f-soft)"/>
-      <ellipse cx="116" cy="36" rx="26" ry="16" fill="#FFFFFF" opacity=".28" filter="url(#f-soft)"/>
-      <ellipse cx="110" cy="120" rx="13" ry="26" fill="#948B82" opacity=".34" filter="url(#f-soft2)" transform="rotate(-12 110 120)"/>
-      <rect x="30" y="0" width="340" height="450" filter="url(#f-grain)" opacity=".21" style="mix-blend-mode:multiply"/>
-    </g>
-    <use href="#p-sil" fill="none" stroke="#7E766C" stroke-width="1" opacity=".36"/>
-
-    <!-- клюв: круто опущен вниз, как на оригинале -->
-    <path fill="url(#g-beak)" d="M92,57
-      C80,81 61,119 46,143 C43,149 48,154 54,149
-      C69,135 87,110 99,89 C104,79 100,60 92,57 Z"/>
-    <!-- тёмное пятно у основания клюва -->
-    <path d="M101,51 C105,60 104,75 97,84 C91,91 82,89 79,79
-             C76,68 82,53 90,49 C94,47 99,47 101,51 Z" fill="#262320" opacity=".94"/>
-    <path d="M54,146 C69,131 86,108 98,88" fill="none" stroke="#A8A29A" stroke-width="1.2" opacity=".38" stroke-linecap="round"/>
-
-    <!-- глаз с тяжёлым веком -->
-    <path d="M106,55 C110,46 126,44 132,52 C137,60 128,68 118,66 C111,64 103,61 106,55 Z" fill="#1E1B18"/>
-    <path d="M106,55 C111,47 127,45 132,52" fill="none" stroke="#141210" stroke-width="3" stroke-linecap="round"/>
-    <circle cx="123" cy="52" r="2.1" fill="#FFF" opacity=".7"/>
-    <!-- длинные загнутые ресницы -->
-    <g stroke="#1E1B18" stroke-width="1.9" stroke-linecap="round" fill="none">
-      <path d="M107,50 C99,44 92,36 88,26"/>
-      <path d="M113,46 C106,38 101,29 98,19"/>
-      <path d="M119,44 C114,35 111,26 109,17"/>
-      <path d="M125,44 C122,35 121,27 121,18"/>
-      <path d="M131,46 C130,38 131,30 133,22"/>
-    </g>
-  </g>
 
   <linearGradient id="g-fade" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0" stop-color="#fff"/><stop offset="0.74" stop-color="#fff"/>
-    <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    <stop offset="0" stop-color="#fff"/><stop offset="0.54" stop-color="#fff"/>
+    <stop offset="0.8" stop-color="#fff" stop-opacity="0"/>
   </linearGradient>
-  <mask id="m-fade"><rect x="-40" y="0" width="460" height="450" fill="url(#g-fade)"/></mask>
+  <mask id="m-fade"><rect x="-20" y="0" width="560" height="768" fill="url(#g-fade)"/></mask>
 
   <!-- ░ пёрышко ░ -->
   <g id="p-feather">
@@ -239,9 +168,8 @@
 
           <!-- ░ swan sits between liner and front pocket ░ -->
           <g id="swan-in-env">
-            <g transform="translate(281,523) scale(1.35)">
-              <use href="#swan-portrait-src"/>
-            </g>
+            <image href="assets/img/swan.png" x="310" y="522" width="321" height="489"
+                   preserveAspectRatio="xMidYMid meet"/>
           </g>
 
           <!-- front pocket: side flaps + bottom flap -->
@@ -433,8 +361,9 @@
 
 <!-- ══════════════  УЛЕТАЮЩИЙ ЛЕБЕДЬ  ══════════════ -->
 <div id="flyer" class="flyer" aria-hidden="true">
-  <svg viewBox="0 0 360 450" xmlns="http://www.w3.org/2000/svg">
-    <g class="flyer__swan" mask="url(#m-fade)"><use href="#swan-portrait-src"/></g>
+  <svg viewBox="0 0 505 768" xmlns="http://www.w3.org/2000/svg">
+    <image class="flyer__swan" href="assets/img/swan.png" x="0" y="0" width="505" height="768"
+           mask="url(#m-fade)"/>
   </svg>
 </div>
 
