@@ -155,6 +155,7 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
 .amp{ letter-spacing:0; }
 
 .body{ margin:0; font-size:24px; line-height:1.5; letter-spacing:.012em; }
+.body--sm{ font-size:19px; line-height:1.5; }
 .body em{ font-style:italic; }
 
 .date{ margin:4px 0 0; font-size:34px; letter-spacing:.05em; white-space:nowrap; }
@@ -325,6 +326,7 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
   .body,.accent,.closing{ font-size:20.5px; } .names{ font-size:33px; } .date{ font-size:28px; }
   .cd__n{ font-size:36px; } .rings{ width:52px; } .h{ font-size:24px; }
   .s--dense .body,.s--last .body{ font-size:19.5px; line-height:1.42; }
+  .body--sm{ font-size:17px; }
   .venue{ max-height:38svh; }
 }
 @media (max-height:700px){
@@ -332,6 +334,7 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
   .s__in{ gap:13px; }
   .body,.accent,.closing{ font-size:18px; line-height:1.44; }
   .s--dense .body,.s--last .body{ font-size:17px; line-height:1.4; }
+  .body--sm{ font-size:15.5px; }
   .s--dense,.s--last{ padding-top:calc(var(--bar) + 2svh); padding-bottom:6svh; }
   .s--dense .s__in,.s--last .s__in{ gap:10px; }
   .names{ font-size:29px; } .date{ font-size:25px; } .h{ font-size:21px; }
@@ -346,6 +349,7 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
   .s__in{ gap:10px; }
   .body,.accent,.closing{ font-size:16px; line-height:1.4; }
   .s--dense .body,.s--last .body{ font-size:15px; line-height:1.36; }
+  .body--sm{ font-size:14px; }
   .s--dense .s__in,.s--last .s__in{ gap:7px; }
   .names{ font-size:25px; } .date{ font-size:22px; } .h{ font-size:19px; }
   .coord{ font-size:22px; } .cd__n{ font-size:26px; } .cd__l{ font-size:10px; }
