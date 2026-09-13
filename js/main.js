@@ -138,9 +138,11 @@
   });
 
   /* ═══════════  ОТКРЫТИЕ КОНВЕРТА  ═══════════ */
-  var opened = false;
+  var opened = false, revealed = false;
 
   function reveal () {
+    if (revealed) return;
+    revealed = true;
     document.body.classList.remove('is-locked');
     site.setAttribute('aria-hidden', 'false');
     site.classList.add('is-live');
@@ -152,8 +154,12 @@
   function open () {
     if (opened) return;
     opened = true;
-    startMusic();
-    cover.classList.add('is-opening');
+    /* что бы ни случилось с музыкой или анимацией конверта,
+       страница должна открыться — иначе гость упрётся в пустой экран */
+    try {
+      startMusic();
+      cover.classList.add('is-opening');
+    } catch (e) {}
     setTimeout(reveal, reduce ? 120 : 620);
   }
   openBtn.addEventListener('click', open);
@@ -161,6 +167,15 @@
   /* ═══════════  ПОЯВЛЕНИЕ БЛОКОВ  ═══════════ */
   function revealInit () {
     var secs = document.querySelectorAll('[data-rv]');
+
+    /* страховка: всё, что уже попало на экран, показываем сразу —
+       не дожидаясь наблюдателя, иначе при сбое гость видит пустой лист */
+    var vh = window.innerHeight;
+    secs.forEach(function (s) {
+      var r = s.getBoundingClientRect();
+      if (r.top < vh * 0.9 && r.bottom > 0) s.classList.add('in');
+    });
+
     if (!('IntersectionObserver' in window)) {
       secs.forEach(function (s) { s.classList.add('in'); });
       return;
