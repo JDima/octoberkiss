@@ -321,44 +321,6 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
 .sound.is-muted .sound__off{ display:block; }
 
 /* ─────────────  адаптив  ───────────── */
-@media (max-height:800px){
-  .s{ padding-top:calc(var(--bar) + 5svh); padding-bottom:10svh; }
-  .s__in{ gap:17px; }
-  .body,.accent,.closing{ font-size:20.5px; } .names{ font-size:33px; } .date{ font-size:28px; }
-  .cd__n{ font-size:36px; } .rings{ width:52px; } .h{ font-size:24px; }
-  .s--dense .body,.s--last .body{ font-size:19.5px; line-height:1.42; }
-  .body--sm{ font-size:17px; }
-  .venue{ max-height:38svh; }
-}
-@media (max-height:700px){
-  .s{ padding-top:calc(var(--bar) + 3svh); padding-bottom:7svh; }
-  .s__in{ gap:13px; }
-  .body,.accent,.closing{ font-size:18px; line-height:1.44; }
-  .s--dense .body,.s--last .body{ font-size:17px; line-height:1.4; }
-  .body--sm{ font-size:15.5px; }
-  .s--dense,.s--last{ padding-top:calc(var(--bar) + 2svh); padding-bottom:6svh; }
-  .s--dense .s__in,.s--last .s__in{ gap:10px; }
-  .names{ font-size:29px; } .date{ font-size:25px; } .h{ font-size:21px; }
-  .coord{ font-size:25px; } .cd__n{ font-size:30px; } .rings{ width:44px; }
-  .prog li{ padding:9px 0; } .prog__t,.prog__h{ font-size:17px; }
-  .venue{ max-height:36svh; }
-  .frame{ max-height:68svh; }
-  .s--hero .names{ font-size:27px; } .s--hero .body{ font-size:17px; } .s--hero .date{ font-size:24px; }
-}
-@media (max-height:600px){
-  .s{ padding-top:calc(var(--bar) + 2svh); padding-bottom:5svh; }
-  .s__in{ gap:10px; }
-  .body,.accent,.closing{ font-size:16px; line-height:1.4; }
-  .s--dense .body,.s--last .body{ font-size:15px; line-height:1.36; }
-  .body--sm{ font-size:14px; }
-  .s--dense .s__in,.s--last .s__in{ gap:7px; }
-  .names{ font-size:25px; } .date{ font-size:22px; } .h{ font-size:19px; }
-  .coord{ font-size:22px; } .cd__n{ font-size:26px; } .cd__l{ font-size:10px; }
-  .rings{ width:38px; } .btn{ padding:11px 22px; font-size:12px; }
-  .prog li{ padding:7px 0; } .prog__t,.prog__h{ font-size:15.5px; }
-  .venue{ max-height:32svh; } .frame{ max-height:64svh; }
-  .s--hero .names{ font-size:24px; } .s--hero .body{ font-size:16px; } .s--hero .date{ font-size:21px; }
-}
 @media (max-width:360px){
   :root{ --gut:20px; }
   .body,.accent,.closing{ font-size:21px; }
