@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23EBE5DA'/%3E%3Cpath d='M36 10c7 0 12 5 12 10 0 6-4 9-4 13 2 14 8 26 14 31H44c-4-8-9-19-12-27-3-7-6-12-8-15-3-4-6-8-6-13 0-6 6-9 12-9z' fill='%23D8D2C8' stroke='%238A8277' stroke-width='1.6'/%3E%3Cpath d='M27 12c-6 3-16 10-22 15-2 2 0 5 3 4 8-3 17-8 22-12 2-3 1-8-3-7z' fill='%23343029'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="css/style.css?v=202609140016">
+<link rel="stylesheet" href="css/style.css?v=202609140027">
 <noscript><style>
   #cover,#sound,.burger{display:none!important}
   body.is-locked{position:static!important;overflow:auto!important;height:auto!important;inset:auto!important}
@@ -83,7 +83,7 @@
   </section>
 
   <!-- ── 2 ── -->
-  <section class="s" id="s2" data-rv>
+  <section class="s s--left" id="s2" data-rv>
     <div class="s__in">
       <span class="bird" aria-hidden="true"><img src="assets/img/bird.png" alt=""></span>
       <p class="body">после жаркого лета<br>нас ждёт один очень важный<br>«осенний поцелуй» —<br>наша свадьба.</p>
@@ -142,7 +142,7 @@
       <span class="bird" aria-hidden="true"><img src="assets/img/bird.png" alt=""></span>
       <h2 class="h">Программа</h2>
       <ul class="prog">
-        <li><span class="prog__t">сбор гостей</span><span class="prog__dots"></span><span class="prog__h">17:30</span></li>
+        <li><span class="prog__t">сбор гостей в ЗАГСе</span><span class="prog__dots"></span><span class="prog__h">17:30</span></li>
         <li><span class="prog__t">регистрация брака</span><span class="prog__dots"></span><span class="prog__h">17:40</span></li>
         <li><span class="prog__t">начало праздника</span><span class="prog__dots"></span><span class="prog__h">19:00</span></li>
         <li><span class="prog__t">окончание вечера</span><span class="prog__dots"></span><span class="prog__h">00:00</span></li>
@@ -155,13 +155,13 @@
   </section>
 
   <!-- ── 6 · ПОЖЕЛАНИЯ ── -->
-  <section class="s s--dense" id="wish" data-rv>
+  <section class="s s--dense s--left" id="wish" data-rv>
     <div class="s__in">
       <span class="bird" aria-hidden="true"><img src="assets/img/bird.png" alt=""></span>
       <h2 class="h">Пожелания</h2>
       <p class="body">для подарка нам ближе всего<br>формат конверта —<br>так мы сможем выбрать<br>для нашей семейной жизни<br>что-то действительно важное.</p>
       <span class="rule"></span>
-      <p class="body">а если захочется порадовать<br>нас цветами, предлагаем<br>сделать это чуть позже,<br>с помощью цветочной<br>подписки в <a class="ulink" href="https://t.me/maryglow" target="_blank" rel="noopener">Mary&nbsp;Glow</a>.</p>
+      <p class="body">а если захочется порадовать<br>нас цветами, предлагаем<br>сделать это чуть позже,<br>с помощью цветочной<br>подписки в <a class="ulink" href="https://www.instagram.com/maryglow_studio/" target="_blank" rel="noopener">Mary&nbsp;Glow</a>.</p>
       <p class="body">так букеты смогут появляться<br>у нас дома после свадьбы<br>и каждый раз возвращать<br>нас в этот день.</p>
     </div>
     <a class="chev" href="#contacts" aria-label="Дальше">
@@ -174,7 +174,7 @@
     <div class="s__in">
       <h2 class="h">Контакты</h2>
       <span class="rule"></span>
-      <p class="body">по всем организационным<br>вопросам, а также если вы<br>захотите подготовить для нас<br>сюрприз, можно обратиться<br>к нашему координатору</p>
+      <p class="body">Все организационные вопросы можно доверить Ирине. Она также поможет, если вы захотите подготовить для нас сюрприз.</p>
       <p class="coord"><span>Ирина</span><span class="rule rule--inline"></span></p>
       <a class="btn" href="https://t.me/irina_raputa" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 4.2 2.9 11.4c-.9.35-.9 1.6.02 1.9l4.6 1.45 1.77 5.4c.24.73 1.17.92 1.67.34l2.5-2.9 4.8 3.55c.62.46 1.5.12 1.66-.64l3.2-14.8c.17-.8-.62-1.48-1.37-1.2Z" fill="currentColor" opacity=".92"/></svg>
@@ -183,7 +183,25 @@
       <span class="rule"></span>
 
       <p class="h h--sm">До встречи</p>
-      <img class="rings" src="assets/img/rings.png" alt="" width="92" height="62">
+      <svg class="rings" viewBox="0 0 76 46" aria-hidden="true">
+        <defs>
+          <linearGradient id="ring-a" x1="0" y1="0" x2="0.7" y2="1">
+            <stop offset="0" stop-color="#9FAAC0"/><stop offset="0.45" stop-color="#6E7C99"/>
+            <stop offset="1" stop-color="#A8B2C6"/>
+          </linearGradient>
+          <linearGradient id="ring-b" x1="1" y1="0" x2="0.3" y2="1">
+            <stop offset="0" stop-color="#A8B2C6"/><stop offset="0.5" stop-color="#73819D"/>
+            <stop offset="1" stop-color="#9AA5BC"/>
+          </linearGradient>
+        </defs>
+        <g fill="none" stroke-width="2.8" stroke-linecap="round">
+          <circle cx="28" cy="23" r="15" stroke="url(#ring-a)"/>
+          <circle cx="48" cy="23" r="15" stroke="url(#ring-b)"/>
+          <!-- только верхняя половина перехлёста: сверху левое кольцо поверх,
+               снизу остаётся под правым — так кольца выглядят сцепленными -->
+          <path d="M38,11.8 A15,15 0 0 1 43,23" stroke="url(#ring-a)"/>
+        </g>
+      </svg>
 
       <div class="cd" id="countdown" role="timer" aria-live="off">
         <div class="cd__u"><span class="cd__n" id="cd-d">—</span><span class="cd__l" id="cd-dl">дней</span></div>
@@ -192,9 +210,6 @@
         <div class="cd__u"><span class="cd__n" id="cd-s">—</span><span class="cd__l" id="cd-sl">секунд</span></div>
       </div>
       <p class="cd__done" id="cd-done" hidden>сегодня тот самый день ♡</p>
-      <span class="rule"></span>
-
-      <p class="closing">Пусть этот день<br>останется с нами навсегда.</p>
     </div>
   </section>
 
@@ -215,6 +230,6 @@
   <source src="assets/audio/osenniy-potseluy.m4a" type="audio/mp4">
 </audio>
 
-<script src="js/main.js?v=202609140016"></script>
+<script src="js/main.js?v=202609140027"></script>
 </body>
 </html>
