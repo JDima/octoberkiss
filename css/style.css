@@ -194,10 +194,12 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
 .chev--onphoto{ color:#EFE9DE; opacity:.9; }
 /* ─────────────  ОРНАМЕНТАЛЬНАЯ РАМКА  ───────────── */
 .s--hero{ justify-content:center; }
+.s--hero picture{ display:contents; }
 .frame{
   position:absolute; inset:0; margin:auto;
-  width:min(97%, 440px); max-height:76svh; height:auto;
-  pointer-events:none; z-index:0;
+  width:min(100%, 440px); max-height:78svh;
+  height:auto; object-fit:contain;
+  pointer-events:none; user-select:none; z-index:0;
   opacity:0; transition:opacity 1.3s ease .25s;
 }
 [data-rv].in .frame{ opacity:1; }
@@ -327,7 +329,7 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
   .coord{ font-size:25px; } .cd__n{ font-size:30px; } .rings{ width:44px; }
   .prog li{ padding:9px 0; } .prog__t,.prog__h{ font-size:17px; }
   .venue{ max-height:36svh; }
-  .frame{ max-height:66svh; }
+  .frame{ max-height:68svh; }
   .s--hero .names{ font-size:27px; } .s--hero .body{ font-size:17px; } .s--hero .date{ font-size:24px; }
 }
 @media (max-height:600px){
@@ -340,7 +342,7 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
   .coord{ font-size:22px; } .cd__n{ font-size:26px; } .cd__l{ font-size:10px; }
   .rings{ width:38px; } .btn{ padding:11px 22px; font-size:12px; }
   .prog li{ padding:7px 0; } .prog__t,.prog__h{ font-size:15.5px; }
-  .venue{ max-height:32svh; } .frame{ max-height:62svh; }
+  .venue{ max-height:32svh; } .frame{ max-height:64svh; }
   .s--hero .names{ font-size:24px; } .s--hero .body{ font-size:16px; } .s--hero .date{ font-size:21px; }
 }
 @media (max-width:360px){
