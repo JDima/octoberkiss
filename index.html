@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23EBE5DA'/%3E%3Cpath d='M36 10c7 0 12 5 12 10 0 6-4 9-4 13 2 14 8 26 14 31H44c-4-8-9-19-12-27-3-7-6-12-8-15-3-4-6-8-6-13 0-6 6-9 12-9z' fill='%23D8D2C8' stroke='%238A8277' stroke-width='1.6'/%3E%3Cpath d='M27 12c-6 3-16 10-22 15-2 2 0 5 3 4 8-3 17-8 22-12 2-3 1-8-3-7z' fill='%23343029'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="css/style.css?v=202609140100">
+<link rel="stylesheet" href="css/style.css?v=202609140105">
 <noscript><style>
   #cover,#sound,.burger{display:none!important}
   body.is-locked{position:static!important;overflow:auto!important;height:auto!important;inset:auto!important}
@@ -183,26 +183,46 @@
       <span class="rule"></span>
 
       <p class="h h--sm">До встречи</p>
-      <svg class="rings" viewBox="0 0 76 46" aria-hidden="true">
+      <svg class="rings" viewBox="0 0 120 76" aria-hidden="true">
         <defs>
-          <linearGradient id="ring-a" x1="0.08" y1="0" x2="0.92" y2="1">
-            <stop offset="0" stop-color="#DFE0E3"/><stop offset="0.2" stop-color="#95979C"/>
-            <stop offset="0.44" stop-color="#F1F1F3"/><stop offset="0.68" stop-color="#74767B"/>
-            <stop offset="0.87" stop-color="#C6C7CB"/><stop offset="1" stop-color="#8A8C91"/>
+          <linearGradient id="mtlA" x1="0.05" y1="0.05" x2="0.95" y2="0.95">
+            <stop offset="0" stop-color="#EFEFF1"/><stop offset="0.16" stop-color="#8A8C91"/>
+            <stop offset="0.34" stop-color="#F6F6F8"/><stop offset="0.55" stop-color="#6F7176"/>
+            <stop offset="0.74" stop-color="#DCDDE0"/><stop offset="0.9" stop-color="#85878C"/>
+            <stop offset="1" stop-color="#BFC0C4"/>
           </linearGradient>
-          <linearGradient id="ring-b" x1="0.92" y1="0.05" x2="0.1" y2="1">
-            <stop offset="0" stop-color="#C9CACE"/><stop offset="0.24" stop-color="#EFEFF1"/>
-            <stop offset="0.5" stop-color="#83858A"/><stop offset="0.74" stop-color="#E2E2E5"/>
-            <stop offset="1" stop-color="#909296"/>
+          <linearGradient id="mtlB" x1="0.95" y1="0" x2="0.1" y2="1">
+            <stop offset="0" stop-color="#D9DADD"/><stop offset="0.2" stop-color="#F5F5F7"/>
+            <stop offset="0.42" stop-color="#7B7D82"/><stop offset="0.62" stop-color="#EDEDEF"/>
+            <stop offset="0.82" stop-color="#84868B"/><stop offset="1" stop-color="#C8C9CD"/>
           </linearGradient>
+          <filter id="ring-sh" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="2.4"/>
+          </filter>
+          <clipPath id="ring-over"><rect x="46" y="8" width="26" height="34"/></clipPath>
+          <g id="ringL" transform="rotate(-12 42 40)">
+            <ellipse cx="42" cy="40" rx="26" ry="18.5" fill="none" stroke="url(#mtlA)" stroke-width="7"/>
+            <ellipse cx="42" cy="40" rx="28.6" ry="21.1" fill="none" stroke="#6E7075" stroke-width="1" opacity=".5"/>
+            <ellipse cx="42" cy="40" rx="23.4" ry="15.9" fill="none" stroke="#6E7075" stroke-width="1" opacity=".45"/>
+            <ellipse cx="42" cy="40" rx="26" ry="18.5" fill="none" stroke="#FFFFFF" stroke-width="1.8" opacity=".5"
+                     transform="translate(-0.7,-0.9)"/>
+          </g>
         </defs>
-        <g fill="none" stroke-width="2.8" stroke-linecap="round">
-          <circle cx="28" cy="23" r="15" stroke="url(#ring-a)"/>
-          <circle cx="48" cy="23" r="15" stroke="url(#ring-b)"/>
-          <!-- только верхняя половина перехлёста: сверху левое кольцо поверх,
-               снизу остаётся под правым — так кольца выглядят сцепленными -->
-          <path d="M38,11.8 A15,15 0 0 1 43,23" stroke="url(#ring-a)"/>
+        <!-- тени на бумаге -->
+        <g filter="url(#ring-sh)" opacity=".16">
+          <ellipse cx="43" cy="45" rx="26" ry="18" fill="#8C8577" transform="rotate(-12 43 45)"/>
+          <ellipse cx="75" cy="49" rx="26" ry="18" fill="#8C8577" transform="rotate(9 75 49)"/>
         </g>
+        <use href="#ringL"/>
+        <g transform="rotate(9 74 44)">
+          <ellipse cx="74" cy="44" rx="26" ry="18.5" fill="none" stroke="url(#mtlB)" stroke-width="7"/>
+          <ellipse cx="74" cy="44" rx="28.6" ry="21.1" fill="none" stroke="#6E7075" stroke-width="1" opacity=".5"/>
+          <ellipse cx="74" cy="44" rx="23.4" ry="15.9" fill="none" stroke="#6E7075" stroke-width="1" opacity=".45"/>
+          <ellipse cx="74" cy="44" rx="26" ry="18.5" fill="none" stroke="#FFFFFF" stroke-width="1.8" opacity=".45"
+                   transform="translate(-0.8,-0.9)"/>
+        </g>
+        <!-- кусок левого кольца поверх правого — сцепление -->
+        <g clip-path="url(#ring-over)"><use href="#ringL"/></g>
       </svg>
 
       <div class="cd" id="countdown" role="timer" aria-live="off">
@@ -232,6 +252,6 @@
   <source src="assets/audio/osenniy-potseluy.m4a" type="audio/mp4">
 </audio>
 
-<script src="js/main.js?v=202609140100"></script>
+<script src="js/main.js?v=202609140105"></script>
 </body>
 </html>

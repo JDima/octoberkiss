@@ -296,7 +296,7 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
 .btn:active{ transform:translateY(1px); }
 @media (hover:hover){ .btn:hover{ background:var(--ink); border-color:var(--ink); color:var(--paper); } }
 
-.rings{ width:76px; height:auto; display:block; margin:2px 0; }
+.rings{ width:94px; height:auto; display:block; margin:0; }
 
 .cd{ display:flex; align-items:flex-start; justify-content:center; gap:14px; width:100%; }
 .cd__u{ display:flex; flex-direction:column; align-items:center; gap:8px; min-width:62px; }
