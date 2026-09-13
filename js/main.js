@@ -2,16 +2,15 @@
 (function () {
   'use strict';
 
-  /* ─── настройки ─── */
   var CFG = {
     weddingISO : '2026-10-22T17:30:00+03:00', // дата и время сбора гостей (МСК)
-    audioStart : 0,     // файл уже обрезан по 1:11.5 — «это…осенний поцелуй» звучит сразу
+    audioStart : 0,     // файл обрезан по 1:11.5 — «это…осенний поцелуй» звучит сразу
     audioPeak  : 0.62,  // финальная громкость
     fadeMs     : 7000,  // длительность нарастания
     flightMs   : 3100   // полёт лебедя
   };
 
-  /* геометрия летающего лебедя: ширина .flyer и пропорции его viewBox */
+  /* геометрия улетающего лебедя: ширина .flyer и пропорции его viewBox */
   var FLY = { fw: 220, ratio: 450 / 360 };
 
   var $ = function (id) { return document.getElementById(id); };
@@ -20,8 +19,10 @@
   var cover  = $('cover'),
       openBtn= $('openBtn'),
       site   = $('site'),
+      bar    = $('bar'),
+      burger = $('burger'),
+      menu   = $('menu'),
       flyer  = $('flyer'),
-      perch  = $('perch'),
       swanEnv= $('swan-in-env'),
       sound  = $('sound'),
       track  = $('track');
@@ -35,6 +36,7 @@
     document.documentElement.style.setProperty('--vh', window.innerHeight + 'px');
   }
   setVH();
+  requestAnimationFrame(function () { bar.classList.add('is-shown'); });
   window.addEventListener('resize', setVH);
   window.addEventListener('orientationchange', function () { setTimeout(setVH, 250); });
 
@@ -69,7 +71,6 @@
     } else { audioOK = true; fadeIn(); showSound(); }
   }
 
-  /* плавное нарастание: от еле слышного до комфортного */
   function fadeIn () {
     var t0 = performance.now();
     clearInterval(fadeTimer);
@@ -86,7 +87,6 @@
     requestAnimationFrame(function () { sound.classList.add('is-shown'); });
   }
 
-  /* петля: возвращаемся к нужной секунде, а не к началу трека */
   if (track) {
     track.addEventListener('ended', function () {
       seekStart();
@@ -108,76 +108,70 @@
   }
   sound.addEventListener('click', toggleSound);
 
-  /* вкладка ушла в фон — приглушаем */
   document.addEventListener('visibilitychange', function () {
     if (!audioOK || !track) return;
     if (document.hidden) { track.pause(); }
     else if (!sound.classList.contains('is-muted')) { track.play().catch(function(){}); }
   });
 
+  /* ═══════════  МЕНЮ  ═══════════ */
+  function setMenu (open) {
+    document.body.classList.toggle('menu-open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+  }
+  burger.addEventListener('click', function () {
+    setMenu(!document.body.classList.contains('menu-open'));
+  });
+  menu.addEventListener('click', function (e) {
+    var a = e.target.closest('a');
+    if (!a) return;
+    setMenu(false);
+    /* если конверт ещё не открыт — открываем его, а потом прыгаем к разделу */
+    if (!opened) {
+      e.preventDefault();
+      var href = a.getAttribute('href');
+      open();
+      setTimeout(function () {
+        var t = document.querySelector(href);
+        if (t) t.scrollIntoView({ behavior: 'auto', block: 'start' });
+      }, reduce ? 200 : 900);
+    }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && document.body.classList.contains('menu-open')) setMenu(false);
+  });
+
   /* ═══════════  ОТКРЫТИЕ КОНВЕРТА  ═══════════ */
   var opened = false;
 
-  function open () {
-    if (opened) return;
-    opened = true;
-
-    startMusic();
-    cover.classList.add('is-opening');
-    flySwan();
-
-    setTimeout(function () {
-      document.body.classList.remove('is-locked');
-      site.setAttribute('aria-hidden', 'false');
-      site.classList.add('is-live');
-      cover.classList.add('is-gone');
-      revealInit();
-      window.scrollTo(0, 0);
-    }, reduce ? 120 : 620);
-  }
-
-  openBtn.addEventListener('click', open);
-
-  /* ?skip — открыть сразу, без конверта (для отладки) */
-  var skipM = /[?&]skip(?:=(\d+))?/.exec(location.search);
-  if (skipM) {
-    if (skipM[1]) {
-      var fv = skipM[1] + 'px';
-      document.documentElement.style.setProperty('--vh', fv);
-      window.removeEventListener('resize', setVH);
-      setVH = function () { document.documentElement.style.setProperty('--vh', fv); };
-    }
+  function reveal () {
     document.body.classList.remove('is-locked');
     site.setAttribute('aria-hidden', 'false');
     site.classList.add('is-live');
     cover.classList.add('is-gone');
-    opened = true;
     revealInit();
-    document.querySelectorAll('[data-rv]').forEach(function (s) { s.classList.add('in'); });
-    flyer.style.transform = perchTransform();
-    flyer.style.opacity = 1;
-    flyer.classList.add('is-perched');
-    showSound();
+    window.scrollTo(0, 0);
   }
+
+  function open () {
+    if (opened) return;
+    opened = true;
+    startMusic();
+    cover.classList.add('is-opening');
+    flySwan();
+    setTimeout(reveal, reduce ? 120 : 620);
+  }
+  openBtn.addEventListener('click', open);
 
   /* ═══════════  ПОЛЁТ ЛЕБЕДЯ  ═══════════ */
-  function perchTransform () {
-    var to = perch.getBoundingClientRect();
-    var fw = flyer.offsetWidth || FLY.fw, fh = fw * FLY.ratio;
-    var s  = to.width / fw;
-    return 'translate(' + (to.left + to.width / 2 - fw * s / 2).toFixed(1) + 'px,' +
-           (to.top + to.height / 2 - fh * s / 2).toFixed(1) + 'px) scale(' + s.toFixed(3) + ')';
-  }
-
   function flySwan () {
     var from = swanEnv.getBoundingClientRect();
-    var to   = perch.getBoundingClientRect();
     var fw   = flyer.offsetWidth || FLY.fw;
     var fh   = fw * FLY.ratio;
+    var vw   = window.innerWidth, vh = window.innerHeight;
 
     var s0 = Math.max(0.55, Math.min(1.35, (from.width * 1.55) / fw));
-    var s1 = to.width / fw;
-    var vw = window.innerWidth, vh = window.innerHeight;
 
     function at (cx, cy, s) { return { x: cx - fw * s / 2, y: cy - fh * s / 2, s: s }; }
     function kf (p, rot, op) {
@@ -188,43 +182,33 @@
     }
 
     var p0 = at(from.left + from.width * 0.42, from.top + from.height * 0.26, s0);
-    var p1 = at(vw * 0.40, vh * 0.34, s0 * 0.84);
-    var p2 = at(vw * 0.30, vh * 0.15, s0 * 0.58);
-    var p3 = at(vw * 0.72, vh * 0.13, s1 * 1.55);
-    var p4 = at(to.left + to.width / 2, to.top + to.height / 2, s1);
+    var p1 = at(vw * 0.42, vh * 0.34, s0 * 0.84);
+    var p2 = at(vw * 0.30, vh * 0.13, s0 * 0.54);
+    var p3 = at(vw * 0.10, -vh * 0.16, s0 * 0.30);
+
+    if (reduce) return;
 
     flyer.style.transform = kf(p0, -5, 1).transform;
-
-    if (reduce) {
-      flyer.style.transform = perchTransform();
-      flyer.style.opacity = 1;
-      flyer.classList.add('is-perched');
-      return;
-    }
-
     dropFeathers(p0, fw, s0);
     flyer.classList.add('is-flying');
 
     var anim = flyer.animate([
       Object.assign(kf(p0, -5,  0), { offset: 0,    easing: 'ease-out' }),
       Object.assign(kf(p0, -9,  1), { offset: 0.07, easing: 'cubic-bezier(.3,0,.4,1)' }),
-      Object.assign(kf(p1, -18, 1), { offset: 0.34, easing: 'cubic-bezier(.4,0,.5,1)' }),
-      Object.assign(kf(p2, -11, 1), { offset: 0.56, easing: 'cubic-bezier(.4,0,.4,1)' }),
-      Object.assign(kf(p3,   6, 1), { offset: 0.80, easing: 'cubic-bezier(.3,0,.3,1)' }),
-      Object.assign(kf(p4,   0, 1), { offset: 1,    easing: 'cubic-bezier(.2,.8,.3,1)' })
+      Object.assign(kf(p1, -18, 1), { offset: 0.38, easing: 'cubic-bezier(.4,0,.5,1)' }),
+      Object.assign(kf(p2, -13, .9), { offset: 0.70, easing: 'cubic-bezier(.4,0,.4,1)' }),
+      Object.assign(kf(p3, -20, 0), { offset: 1,    easing: 'cubic-bezier(.4,0,.6,1)' })
     ], { duration: CFG.flightMs, fill: 'forwards' });
 
     anim.onfinish = function () {
-      flyer.style.transform = perchTransform();
-      flyer.style.opacity = 1;
       flyer.classList.remove('is-flying');
-      flyer.classList.add('is-perched');
+      flyer.style.visibility = 'hidden';
     };
   }
 
   /* пёрышки, слетающие вниз в момент взлёта */
   function dropFeathers (p0, fw, s0) {
-    var box = document.getElementById('feathers');
+    var box = $('feathers');
     if (!box) return;
     var list = box.querySelectorAll('.feather');
     var vh = window.innerHeight;
@@ -250,19 +234,6 @@
     });
   }
 
-  /* лебедь на насесте — тоже переключатель звука */
-  flyer.addEventListener('click', function () {
-    if (flyer.classList.contains('is-perched')) toggleSound();
-  });
-
-  /* держим лебедя у нужного угла при повороте экрана */
-  var reflow;
-  window.addEventListener('resize', function () {
-    if (!flyer.classList.contains('is-perched')) return;
-    clearTimeout(reflow);
-    reflow = setTimeout(function () { flyer.style.transform = perchTransform(); }, 180);
-  });
-
   /* ═══════════  ПОЯВЛЕНИЕ БЛОКОВ  ═══════════ */
   function revealInit () {
     var secs = document.querySelectorAll('[data-rv]');
@@ -274,7 +245,7 @@
       entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
       });
-    }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
     secs.forEach(function (s) { io.observe(s); });
   }
 
@@ -323,13 +294,19 @@
   tick();
   var cdTimer = setInterval(tick, 1000);
 
-  /* мягкий скролл по якорю «листай вниз» */
-  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
-    a.addEventListener('click', function (ev) {
-      var t = document.querySelector(a.getAttribute('href'));
-      if (!t) return;
-      ev.preventDefault();
-      t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
-    });
-  });
+  /* ?skip — открыть сразу основную страницу, без конверта (для отладки)
+     ?skip=820 — то же, но с фиксированной высотой экрана (для скриншотов) */
+  var skipM = /[?&]skip(?:=(\d+))?/.exec(location.search);
+  if (skipM) {
+    if (skipM[1]) {
+      var fv = skipM[1] + 'px';
+      document.documentElement.style.setProperty('--vh', fv);
+      window.removeEventListener('resize', setVH);
+      setVH = function () { document.documentElement.style.setProperty('--vh', fv); };
+    }
+    opened = true;
+    reveal();
+    document.querySelectorAll('[data-rv]').forEach(function (s) { s.classList.add('in'); });
+    showSound();
+  }
 })();

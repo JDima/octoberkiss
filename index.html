@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
-<meta name="theme-color" content="#EFE9E1">
+<meta name="theme-color" content="#EBE5DA">
 <title>осенний поцелуй — Вика &amp; Дима · 22.10.2026</title>
 <meta name="description" content="Приглашение на свадьбу Вики и Димы. 22 октября 2026, Санкт-Петербург.">
 <meta name="robots" content="noindex, nofollow">
@@ -13,17 +13,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Tenor+Sans&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23EFE9E1'/%3E%3Cpath d='M36 10c7 0 12 5 12 10 0 6-4 9-4 13 2 14 8 26 14 31H44c-4-8-9-19-12-27-3-7-6-12-8-15-3-4-6-8-6-13 0-6 6-9 12-9z' fill='%23D8D2C8' stroke='%238A8277' stroke-width='1.6'/%3E%3Cpath d='M27 12c-6 3-16 10-22 15-2 2 0 5 3 4 8-3 17-8 22-12 2-3 1-8-3-7z' fill='%23343029'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23EBE5DA'/%3E%3Cpath d='M36 10c7 0 12 5 12 10 0 6-4 9-4 13 2 14 8 26 14 31H44c-4-8-9-19-12-27-3-7-6-12-8-15-3-4-6-8-6-13 0-6 6-9 12-9z' fill='%23D8D2C8' stroke='%238A8277' stroke-width='1.6'/%3E%3Cpath d='M27 12c-6 3-16 10-22 15-2 2 0 5 3 4 8-3 17-8 22-12 2-3 1-8-3-7z' fill='%23343029'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="css/style.css">
 <noscript><style>
-  #cover,#flyer,#feathers,#sound{display:none!important}
+  #cover,#flyer,#feathers,#bird,#sound,.burger{display:none!important}
   body.is-locked{position:static!important;overflow:auto!important;height:auto!important;inset:auto!important}
   #site{opacity:1!important;visibility:visible!important}
   [data-rv]>*{opacity:1!important;transform:none!important}
 </style></noscript>
 </head>
 <body class="is-locked">
-
 <!-- ══════════════  SVG DEFS (swan, ornaments)  ══════════════ -->
 <svg width="0" height="0" aria-hidden="true" style="position:absolute">
  <defs>
@@ -117,6 +116,24 @@
     </g>
   </g>
 
+  <!-- ░ маленький летящий лебедь ░ -->
+  <path id="p-bird" d="
+    M0,10 C0,7.5 2.5,5.5 6,5.5 C9,5.5 11,7.5 11.5,10
+    C13,14 16,17.5 20.5,20
+    C26,22 32,23 37,24
+    C40,16 46,7 53,1.5 C56.5,-1.2 60,2.2 57,5.2
+    C51.5,10.8 46.5,18 44.5,25.4
+    C49.5,25.4 55,24.8 59,23.4 C62.4,22.2 64,25.2 61,26.8
+    C55,30 46,31.8 38,31.6 C30,31.4 23,29.4 18,26.4
+    C13,23.4 9.5,19 7.5,15 C5,11.5 2,11.5 0,10 Z"
+    fill="#F7F4EE" stroke="#9C9384" stroke-width=".8" stroke-linejoin="round"/>
+
+  <!-- ░ обручальные кольца ░ -->
+  <g id="p-rings" fill="none" stroke-linecap="round">
+    <circle cx="26" cy="22" r="14" stroke="#B9B2A6" stroke-width="2.6"/>
+    <circle cx="46" cy="22" r="14" stroke="#A49B8D" stroke-width="2.6"/>
+  </g>
+
   <!-- ░ ornamental rule ░ -->
   <g id="orn-rule">
     <line x1="0" y1="6" x2="52" y2="6" stroke="currentColor" stroke-width=".9"/>
@@ -127,10 +144,37 @@
 </svg>
 
 
-<!-- ══════════════  1. ENVELOPE SCREEN  ══════════════ -->
+
+<!-- ══════════════  ШАПКА  ══════════════ -->
+<header class="bar" id="bar">
+  <a class="mono" href="#top" aria-label="Вика и Дима">
+    <svg viewBox="0 0 46 34" aria-hidden="true">
+      <text x="0" y="26" class="mono__v">В</text>
+      <text x="16" y="30" class="mono__d">Д</text>
+      <circle cx="41" cy="9" r="2.6" fill="none" stroke="currentColor" stroke-width="1"/>
+    </svg>
+  </a>
+  <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ══════════════  МЕНЮ  ══════════════ -->
+<nav class="menu" id="menu" aria-hidden="true">
+  <ul>
+    <li><a href="#place">Место</a></li>
+    <li><a href="#dress">Дресс-код</a></li>
+    <li><a href="#prog">Программа</a></li>
+    <li><a href="#wish">Пожелания</a></li>
+    <li><a href="#contacts">Контакты</a></li>
+  </ul>
+  <p class="menu__foot">Вика <span class="amp">&amp;</span> Дима · 22 / 10 / 2026</p>
+</nav>
+
+
+<!-- ══════════════  ОБЛОЖКА  ══════════════ -->
 <section id="cover" aria-label="Конверт — нажмите, чтобы открыть">
   <div class="cover__paper"></div>
-
   <button id="openBtn" class="cover__hit" type="button" aria-label="Открыть приглашение">
     <div class="env-wrap">
       <svg class="env" viewBox="0 0 1000 1250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -230,257 +274,176 @@
               <use href="#mono-leaf" transform="scale(-1,-1)"/>
               <circle cx="0" cy="0" r="2.6" fill="#2E2B27" stroke="none"/>
             </g>
+          </g>
         </g>
       </svg>
     </div>
-
-    <span class="cover__hint">
-      <span class="cover__hint-line"></span>
-      нажмите, чтобы открыть
-      <span class="cover__hint-line"></span>
-    </span>
   </button>
+  <span class="cover__hint">нажмите, чтобы открыть</span>
+  <span class="chev chev--cover" aria-hidden="true">
+    <svg viewBox="0 0 22 12"><path d="M1,1 L11,10 L21,1" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </span>
 </section>
 
-
-<!-- ══════════════  2. MAIN INVITATION  ══════════════ -->
+<!-- ══════════════  ПРИГЛАШЕНИЕ  ══════════════ -->
 <main id="site" aria-hidden="true">
 
-  <!-- ── block 1 ── -->
-  <section class="s s--hero" data-rv>
-    <div class="frame">
-      <svg class="frame__oval" viewBox="0 0 340 470" aria-hidden="true" preserveAspectRatio="none">
-        <ellipse cx="170" cy="235" rx="167" ry="230" fill="none" stroke="#CDC3B4" stroke-width="1.1" opacity=".75"/>
-        <ellipse cx="170" cy="235" rx="158" ry="221" fill="none" stroke="#D8CFC1" stroke-width=".7" opacity=".6"/>
-      </svg>
-      <div class="frame__in">
-        <p class="eyebrow">Вика <span class="amp">&amp;</span> Дима</p>
-        <p class="lead">приглашаем&nbsp;вас разделить с&nbsp;нами<br>один очень важный осенний&nbsp;день.</p>
-        <p class="date">22 октября 2026</p>
-        <p class="sub">…после жаркого лета</p>
-      </div>
+  <!-- ── 1 ── -->
+  <section class="s" id="top" data-rv>
+    <div class="s__in">
+      <h1 class="names">Вика <span class="amp">&amp;</span> Дима</h1>
+      <span class="rule"></span>
+      <p class="body">приглашаем вас разделить<br>с нами один очень важный<br>осенний день.</p>
+      <p class="date">22 октября 2026</p>
     </div>
-    <a class="scroll-hint" href="#b2">
-      листай вниз
-      <svg viewBox="0 0 14 30" aria-hidden="true"><path d="M7,2 L7,24 M2,19 L7,25 L12,19" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <a class="chev chev--first" href="#s2">
+      <span class="chev__stem"></span>
+      <span class="chev__cap">листай вниз</span>
+      <svg viewBox="0 0 22 12"><path d="M1,1 L11,10 L21,1" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
   </section>
 
-  <!-- ── block 2 ── -->
-  <section class="s" id="b2" data-rv>
-    <svg class="rule" viewBox="0 0 132 12" aria-hidden="true"><use href="#orn-rule"/></svg>
-    <p class="body">после жаркого лета<br>нас ждёт один очень важный<br><em>«осенний поцелуй»</em> — наша свадьба.</p>
-    <p class="body">и мы очень хотим, чтобы в этот день<br>рядом были наши самые близкие.</p>
+  <!-- ── 2 ── -->
+  <section class="s" id="s2" data-rv>
+    <div class="s__in">
+      <span class="bird" aria-hidden="true"><svg viewBox="-2 -3 68 38"><use href="#p-bird"/></svg></span>
+      <p class="body">после жаркого лета<br>нас ждёт один очень важный<br><em>«осенний поцелуй»</em> —<br>наша свадьба.</p>
+      <span class="rule"></span>
+      <p class="body">и мы очень хотим, чтобы<br>в этот день рядом были<br>наши самые близкие.</p>
+    </div>
+    <a class="chev" href="#place" aria-label="Дальше">
+      <svg viewBox="0 0 22 12"><path d="M1,1 L11,10 L21,1" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
   </section>
 
-  <!-- ── block 3 ── -->
-  <section class="s" id="b3" data-rv>
-    <h2 class="h">Место</h2>
-    <div class="venue-art" role="img" aria-label="Парадная анфилада">
-      <img src="assets/img/venue.jpg" alt="" onerror="this.remove()">
-      <svg class="venue-art__svg" viewBox="0 0 420 560" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-        <defs>
-          <linearGradient id="g-wall" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#F7F2E9"/><stop offset="0.62" stop-color="#F1EADE"/>
-            <stop offset="1" stop-color="#E7DCCA"/>
-          </linearGradient>
-          <linearGradient id="g-deep" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#EFE7D7"/><stop offset="0.6" stop-color="#E3D8C1"/>
-            <stop offset="1" stop-color="#D4C5A8"/>
-          </linearGradient>
-          <linearGradient id="g-deep2" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#F3ECDD"/><stop offset="1" stop-color="#DED2B8"/>
-          </linearGradient>
-          <linearGradient id="g-floor" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#E0D2B6"/><stop offset="1" stop-color="#C7B392"/>
-          </linearGradient>
-          <radialGradient id="g-glow" cx="0.5" cy="0.42" r="0.62">
-            <stop offset="0" stop-color="#FFFBEE" stop-opacity="1"/>
-            <stop offset="0.55" stop-color="#FDF4DC" stop-opacity="0.75"/>
-            <stop offset="1" stop-color="#F6E9CB" stop-opacity="0"/>
-          </radialGradient>
-          <linearGradient id="g-leaf" x1="0" y1="0" x2="1" y2="0.2">
-            <stop offset="0" stop-color="#FDFBF5"/><stop offset="1" stop-color="#EFE7D6"/>
-          </linearGradient>
-          <filter id="f-v-soft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="14"/></filter>
-          <filter id="f-v-soft2" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="5"/></filter>
-        </defs>
-
-        <rect width="420" height="560" fill="url(#g-wall)"/>
-
-        <!-- enfilade: three receding arched openings -->
-        <path d="M84,520 L84,152 C84,100 122,74 210,74 C298,74 336,100 336,152 L336,520 Z" fill="url(#g-deep)"/>
-        <path d="M118,520 L118,186 C118,142 150,120 210,120 C270,120 302,142 302,186 L302,520 Z" fill="url(#g-deep2)"/>
-        <path d="M150,520 L150,220 C150,184 176,166 210,166 C244,166 270,184 270,220 L270,520 Z" fill="#F0E8D7"/>
-        <path d="M178,520 L178,254 C178,228 192,214 210,214 C228,214 242,228 242,254 L242,520 Z" fill="url(#g-glow)"/>
-        <ellipse cx="210" cy="300" rx="78" ry="132" fill="#FFF8E4" opacity=".55" filter="url(#f-v-soft)"/>
-
-        <!-- parquet floor -->
-        <path d="M84,392 L336,392 L336,520 L84,520 Z" fill="url(#g-floor)"/>
-        <g stroke="#A8916B" stroke-width=".8" fill="none" opacity=".34">
-          <path d="M84,420 L336,420 M84,452 L336,452 M84,490 L336,490"/>
-          <path d="M156,392 L110,520 M186,392 L172,520 M234,392 L248,520 M264,392 L310,520"/>
-        </g>
-        <path d="M84,392 L336,392 L336,430 L84,430 Z" fill="#FFF6DE" opacity=".35" filter="url(#f-v-soft2)"/>
-
-        <!-- frame mouldings -->
-        <g fill="none" stroke="#C3B08A" stroke-width="1.3" opacity=".65">
-          <path d="M84,520 L84,152 C84,100 122,74 210,74 C298,74 336,100 336,152 L336,520"/>
-          <path d="M118,520 L118,186 C118,142 150,120 210,120 C270,120 302,142 302,186 L302,520"/>
-          <path d="M150,520 L150,220 C150,184 176,166 210,166 C244,166 270,184 270,220 L270,520"/>
-        </g>
-        <g fill="none" stroke="#FFFFFF" stroke-width="1.6" opacity=".55">
-          <path d="M92,520 L92,154 C92,106 128,82 210,82 C292,82 328,106 328,154 L328,520"/>
-        </g>
-
-        <!-- keystone ornament -->
-        <g transform="translate(210,80)" fill="none" stroke="#C0AC84" stroke-width="1.2" opacity=".8">
-          <path d="M-16,10 C-10,-2 -4,-8 0,-14 C4,-8 10,-2 16,10"/>
-          <path d="M-9,8 C-6,0 -3,-4 0,-8 C3,-4 6,0 9,8"/>
-        </g>
-
-        <!-- open door leaf, right -->
-        <g>
-          <path d="M336,44 L420,22 L420,540 L336,522 Z" fill="url(#g-leaf)" stroke="#D3C6AC" stroke-width="1.2"/>
-          <g fill="none" stroke="#CBBB99" stroke-width="1" opacity=".9">
-            <path d="M352,96 L404,82 L404,258 L352,248 Z"/>
-            <path d="M352,300 L404,292 L404,470 L352,458 Z"/>
-          </g>
-          <g fill="none" stroke="#C2AE86" stroke-width="1.2" opacity=".7">
-            <path d="M358,106 C368,100 388,98 396,104 M358,240 C368,246 388,246 396,240"/>
-            <path d="M358,310 C368,304 388,302 396,308"/>
-          </g>
-          <ellipse cx="344" cy="300" rx="5" ry="7" fill="#C9B283" stroke="#A8905F" stroke-width="1"/>
-        </g>
-
-        <!-- pilaster, left -->
-        <path d="M0,30 L84,46 L84,520 L0,538 Z" fill="#FCFAF4" stroke="#DFD4BF" stroke-width="1.2"/>
-        <g fill="none" stroke="#D8CBB1" stroke-width="1" opacity=".85">
-          <path d="M16,88 L68,98 L68,262 L16,254 Z"/>
-          <path d="M16,306 L68,300 L68,466 L16,472 Z"/>
-        </g>
-        <ellipse cx="76" cy="300" rx="5" ry="7" fill="#C9B283" stroke="#A8905F" stroke-width="1"/>
-
-        <!-- two coupes on a console, far left of the opening -->
-        <g opacity=".9">
-          <path d="M96,398 L146,398" stroke="#B6A27C" stroke-width="2.4" stroke-linecap="round"/>
-          <g fill="#FBF4DE" stroke="#C3B189" stroke-width="1" >
-            <path d="M104,374 C104,386 110,392 114,393 L114,397 L109,397 L109,399 L123,399 L123,397 L118,397 L118,393 C122,392 128,386 128,374 Z"/>
-            <path d="M126,368 C126,380 132,386 136,387 L136,397 L131,397 L131,399 L145,399 L145,397 L140,397 L140,387 C144,386 150,380 150,368 Z"/>
-          </g>
-        </g>
-
-        <!-- light falling from the right + vignette -->
-        <path d="M336,40 L420,20 L420,560 L300,560 Z" fill="#FFF9E8" opacity=".30" filter="url(#f-v-soft)"/>
-        <rect width="420" height="560" fill="none"/>
-        <path d="M0,0 L420,0 L420,560 L0,560 Z" fill="url(#g-wall)" opacity="0"/>
-        <rect width="420" height="560" filter="url(#f-paper-grain)" opacity=".08" style="mix-blend-mode:multiply"/>
-      </svg>
-    </div>
-
-    <div class="place">
-      <p class="place__pre">встречаемся в</p>
-      <p class="place__name">ЗАГСе №1</p>
-      <p class="place__addr">Английская набережная, 28</p>
+  <!-- ── 3 · МЕСТО ── -->
+  <section class="s s--place" id="place" data-rv>
+    <div class="s__in s__in--place">
+      <h2 class="h">Место</h2>
+      <p class="body">встречаемся в ЗАГСе №&nbsp;1<br>Английская набережная, 28</p>
       <a class="link-map" href="https://yandex.ru/maps/?text=Санкт-Петербург,%20Английская%20набережная,%2028" target="_blank" rel="noopener">на карте</a>
-    </div>
-    <svg class="rule rule--sm" viewBox="0 0 132 12" aria-hidden="true"><use href="#orn-rule"/></svg>
-    <div class="place">
-      <p class="place__pre">а дальше праздновать</p>
-      <p class="place__name">бывший отель «Талион»</p>
-      <p class="place__addr">Невский проспект, 15</p>
+      <span class="rule"></span>
+      <p class="body">а дальше праздновать<br>в бывший отель «Талион»<br>Невский проспект, 15</p>
       <a class="link-map" href="https://yandex.ru/maps/?text=Санкт-Петербург,%20Невский%20проспект,%2015" target="_blank" rel="noopener">на карте</a>
     </div>
-  </section>
-
-  <!-- ── block 4 ── -->
-  <section class="s" id="b4" data-rv>
-    <h2 class="h">Дресс-код</h2>
-    <p class="body">будем рады видеть гостей в однотонных образах в оттенках нашей палитры.</p>
-
-    <div class="palette" aria-label="Наша палитра">
-      <figure class="sw"><span class="sw__c" style="--c:#6B1421"></span><figcaption>бордо</figcaption></figure>
-      <figure class="sw"><span class="sw__c" style="--c:#5A3550"></span><figcaption>сливовый</figcaption></figure>
-      <figure class="sw"><span class="sw__c" style="--c:#4B4D2C"></span><figcaption>оливковый</figcaption></figure>
-      <figure class="sw"><span class="sw__c" style="--c:#1C1C1A"></span><figcaption>чёрный</figcaption></figure>
-      <figure class="sw"><span class="sw__c" style="--c:#C2A47B"></span><figcaption>песочный</figcaption></figure>
-    </div>
-
-    <p class="body">девушкам предлагаем обратить внимание на шёлк и кружево: выбрать одну из фактур или добавить её в образ как акцент.</p>
-    <p class="body">а мужчинам — на костюмную группу.</p>
-  </section>
-
-  <!-- ── block 5 ── -->
-  <section class="s" id="b5" data-rv>
-    <h2 class="h">Программа</h2>
-    <ul class="prog">
-      <li><span class="prog__t">сбор гостей</span><span class="prog__dots"></span><span class="prog__h">17:30</span></li>
-      <li><span class="prog__t">регистрация брака</span><span class="prog__dots"></span><span class="prog__h">17:40</span></li>
-      <li><span class="prog__t">начало праздника</span><span class="prog__dots"></span><span class="prog__h">19:00</span></li>
-      <li><span class="prog__t">окончание вечера</span><span class="prog__dots"></span><span class="prog__h">00:00</span></li>
-    </ul>
-  </section>
-
-  <!-- ── block 6 ── -->
-  <section class="s" id="b6" data-rv>
-    <h2 class="h">Пожелания</h2>
-    <p class="body">для подарка нам ближе всего формат конверта — так мы сможем выбрать для нашей семейной жизни что-то действительно важное.</p>
-    <svg class="rule rule--sm" viewBox="0 0 132 12" aria-hidden="true"><use href="#orn-rule"/></svg>
-    <p class="body">а если захочется порадовать нас цветами, предлагаем сделать это чуть позже, с&nbsp;помощью цветочной подписки в&nbsp;<em>Mary&nbsp;Glow</em>.</p>
-    <p class="body">так букеты смогут появиться у нас дома после свадьбы и каждый раз возвращать нас в этот день.</p>
-  </section>
-
-  <!-- ── block 7 ── -->
-  <section class="s" id="b7" data-rv>
-    <h2 class="h">Координатор</h2>
-    <p class="body">по всем организационным вопросам, а&nbsp;также если вы захотите подготовить для&nbsp;нас сюрприз, можно обратиться к&nbsp;нашему координатору</p>
-    <p class="name">Ирина</p>
-    <a class="btn" href="https://t.me/irina_raputa" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 4.2 2.9 11.4c-.9.35-.9 1.6.02 1.9l4.6 1.45 1.77 5.4c.24.73 1.17.92 1.67.34l2.5-2.9 4.8 3.55c.62.46 1.5.12 1.66-.64l3.2-14.8c.17-.8-.62-1.48-1.37-1.2Z" fill="currentColor" opacity=".92"/></svg>
-      связаться
+    <figure class="venue">
+      <img src="assets/img/venue.jpg" alt="Парадная анфилада" loading="lazy" onerror="this.remove()">
+    </figure>
+    <a class="chev chev--onphoto" href="#dress" aria-label="Дальше">
+      <svg viewBox="0 0 22 12"><path d="M1,1 L11,10 L21,1" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
   </section>
 
-  <!-- ── countdown ── -->
-  <section class="s s--cd" id="cd" data-rv>
-    <p class="cd__pre">до нашей свадьбы осталось</p>
-    <div class="cd" id="countdown" role="timer" aria-live="off">
-      <div class="cd__u"><span class="cd__n" id="cd-d">—</span><span class="cd__l" id="cd-dl">дней</span></div>
-      <span class="cd__sep">:</span>
-      <div class="cd__u"><span class="cd__n" id="cd-h">—</span><span class="cd__l" id="cd-hl">часов</span></div>
-      <span class="cd__sep">:</span>
-      <div class="cd__u"><span class="cd__n" id="cd-m">—</span><span class="cd__l" id="cd-ml">минут</span></div>
-      <span class="cd__sep">:</span>
-      <div class="cd__u"><span class="cd__n" id="cd-s">—</span><span class="cd__l" id="cd-sl">секунд</span></div>
+  <!-- ── 4 · ДРЕСС-КОД ── -->
+  <section class="s" id="dress" data-rv>
+    <div class="s__in">
+      <span class="bird" aria-hidden="true"><svg viewBox="-2 -3 68 38"><use href="#p-bird"/></svg></span>
+      <h2 class="h">Дресс-код</h2>
+      <p class="body">будем рады видеть гостей<br>в однотонных образах<br>в оттенках нашей палитры.</p>
+      <span class="rule"></span>
+      <p class="accent">стиль: элегантный</p>
+      <span class="rule"></span>
+      <p class="body body--sm">девушкам предлагаем обратить внимание на&nbsp;шёлк и&nbsp;кружево: выбрать одну из&nbsp;фактур или добавить её в&nbsp;образ как акцент. а&nbsp;мужчинам — на&nbsp;костюмную группу.</p>
     </div>
-    <p class="cd__done" id="cd-done" hidden>сегодня тот самый день ♡</p>
-    <footer class="foot">
-      <svg class="rule rule--sm" viewBox="0 0 132 12" aria-hidden="true"><use href="#orn-rule"/></svg>
-      <p class="foot__names">Вика <span class="amp">&amp;</span> Дима</p>
-      <p class="foot__date">22 · 10 · 2026</p>
-    </footer>
+    <div class="palette-wrap">
+      <p class="palette__t">Наша палитра</p>
+      <div class="palette" aria-label="Наша палитра">
+        <figure class="sw"><span class="sw__c" style="--c:#6B1421"></span><figcaption>бордо</figcaption></figure>
+        <figure class="sw"><span class="sw__c" style="--c:#5A3550"></span><figcaption>сливовый</figcaption></figure>
+        <figure class="sw"><span class="sw__c" style="--c:#4B4D2C"></span><figcaption>оливковый</figcaption></figure>
+        <figure class="sw"><span class="sw__c" style="--c:#1C1C1A"></span><figcaption>чёрный</figcaption></figure>
+        <figure class="sw"><span class="sw__c" style="--c:#C2A47B"></span><figcaption>песочный</figcaption></figure>
+      </div>
+    </div>
+    <a class="chev" href="#prog" aria-label="Дальше">
+      <svg viewBox="0 0 22 12"><path d="M1,1 L11,10 L21,1" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
   </section>
+
+  <!-- ── 5 · ПРОГРАММА ── -->
+  <section class="s" id="prog" data-rv>
+    <div class="s__in">
+      <span class="bird" aria-hidden="true"><svg viewBox="-2 -3 68 38"><use href="#p-bird"/></svg></span>
+      <h2 class="h">Программа</h2>
+      <ul class="prog">
+        <li><span class="prog__t">сбор гостей</span><span class="prog__dots"></span><span class="prog__h">17:30</span></li>
+        <li><span class="prog__t">регистрация брака</span><span class="prog__dots"></span><span class="prog__h">17:40</span></li>
+        <li><span class="prog__t">начало праздника</span><span class="prog__dots"></span><span class="prog__h">19:00</span></li>
+        <li><span class="prog__t">окончание вечера</span><span class="prog__dots"></span><span class="prog__h">00:00</span></li>
+      </ul>
+    </div>
+    <a class="chev" href="#wish" aria-label="Дальше">
+      <svg viewBox="0 0 22 12"><path d="M1,1 L11,10 L21,1" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </section>
+
+  <!-- ── 6 · ПОЖЕЛАНИЯ ── -->
+  <section class="s" id="wish" data-rv>
+    <div class="s__in">
+      <span class="bird" aria-hidden="true"><svg viewBox="-2 -3 68 38"><use href="#p-bird"/></svg></span>
+      <h2 class="h">Пожелания</h2>
+      <p class="body">для подарка нам ближе всего<br>формат конверта —<br>так мы сможем выбрать<br>для нашей семейной жизни<br>что-то действительно важное.</p>
+      <span class="rule"></span>
+      <p class="body">а если захочется порадовать<br>нас цветами, предлагаем<br>сделать это чуть позже,<br>с помощью цветочной<br>подписки в <a class="ulink" href="https://t.me/maryglow" target="_blank" rel="noopener">Mary&nbsp;Glow</a>.</p>
+      <p class="body">так букеты смогут появляться<br>у нас дома после свадьбы<br>и каждый раз возвращать<br>нас в этот день.</p>
+    </div>
+    <a class="chev" href="#contacts" aria-label="Дальше">
+      <svg viewBox="0 0 22 12"><path d="M1,1 L11,10 L21,1" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </section>
+
+  <!-- ── 7 · КОНТАКТЫ + ОТСЧЁТ ── -->
+  <section class="s s--last" id="contacts" data-rv>
+    <div class="s__in">
+      <h2 class="h">Контакты</h2>
+      <p class="body">по всем организационным<br>вопросам, а также если вы<br>захотите подготовить для нас<br>сюрприз, можно обратиться<br>к нашему координатору</p>
+      <p class="coord"><span>Ирина</span><span class="rule rule--inline"></span></p>
+      <a class="btn" href="https://t.me/irina_raputa" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 4.2 2.9 11.4c-.9.35-.9 1.6.02 1.9l4.6 1.45 1.77 5.4c.24.73 1.17.92 1.67.34l2.5-2.9 4.8 3.55c.62.46 1.5.12 1.66-.64l3.2-14.8c.17-.8-.62-1.48-1.37-1.2Z" fill="currentColor" opacity=".92"/></svg>
+        связаться в Telegram
+      </a>
+
+      <p class="h h--sm">До встречи</p>
+      <svg class="rings" viewBox="0 0 72 44" aria-hidden="true"><use href="#p-rings"/></svg>
+
+      <div class="cd" id="countdown" role="timer" aria-live="off">
+        <div class="cd__u"><span class="cd__n" id="cd-d">—</span><span class="cd__l" id="cd-dl">дней</span></div>
+        <div class="cd__u"><span class="cd__n" id="cd-h">—</span><span class="cd__l" id="cd-hl">часов</span></div>
+        <div class="cd__u"><span class="cd__n" id="cd-m">—</span><span class="cd__l" id="cd-ml">минут</span></div>
+        <div class="cd__u"><span class="cd__n" id="cd-s">—</span><span class="cd__l" id="cd-sl">секунд</span></div>
+      </div>
+      <p class="cd__done" id="cd-done" hidden>сегодня тот самый день ♡</p>
+
+      <p class="closing">Пусть этот день<br>останется с нами навсегда.</p>
+    </div>
+  </section>
+
+  <!-- ── подвал ── -->
+  <footer class="foot">
+    <p class="foot__names">Вика <span class="amp">&amp;</span> Дима · 22 / 10 / 2026</p>
+    <ul class="foot__nav">
+      <li><a href="#place">Место</a></li>
+      <li><a href="#dress">Дресс-код</a></li>
+      <li><a href="#prog">Программа</a></li>
+      <li><a href="#wish">Пожелания</a></li>
+      <li><a href="#contacts">Контакты</a></li>
+    </ul>
+  </footer>
 </main>
 
-
-<!-- ══════════════  FLYING SWAN (overlay)  ══════════════ -->
+<!-- ══════════════  УЛЕТАЮЩИЙ ЛЕБЕДЬ  ══════════════ -->
 <div id="flyer" class="flyer" aria-hidden="true">
   <svg viewBox="0 0 360 450" xmlns="http://www.w3.org/2000/svg">
     <g class="flyer__swan" mask="url(#m-fade)"><use href="#swan-portrait-src"/></g>
   </svg>
 </div>
 
-<!-- пёрышки, которые роняет улетающий лебедь -->
 <div id="feathers" class="feathers" aria-hidden="true">
   <svg viewBox="0 0 44 96" class="feather"><use href="#p-feather"/></svg>
   <svg viewBox="0 0 44 96" class="feather"><use href="#p-feather"/></svg>
   <svg viewBox="0 0 44 96" class="feather"><use href="#p-feather"/></svg>
 </div>
 
-<!-- perch anchor for the flight target -->
-<div id="perch" aria-hidden="true"></div>
-
-<!-- sound toggle sits on the perched swan -->
 <button id="sound" class="sound" type="button" aria-label="Выключить музыку" hidden>
   <svg class="sound__on" viewBox="0 0 24 24" aria-hidden="true">
     <path d="M4 9.5h3.4L12 5.4v13.2L7.4 14.5H4z" fill="currentColor"/>
