@@ -6,7 +6,6 @@
     weddingISO : '2026-10-22T17:30:00+03:00', // дата и время сбора гостей (МСК)
     audioStart : 0,     // файл обрезан по 1:11.5 — «это…осенний поцелуй» звучит сразу
     audioPeak  : 0.62,  // финальная громкость
-    fadeMs     : 7000,  // длительность нарастания
     flightMs   : 3100   // полёт лебедя
   };
 
@@ -36,7 +35,11 @@
   window.addEventListener('orientationchange', function () { setTimeout(setVH, 250); });
 
   /* ═══════════  МУЗЫКА  ═══════════ */
-  var audioOK = false, fadeTimer = null;
+  var audioOK = false;
+
+  /* Нарастание громкости (9 с) вшито в сам файл. Через JS его не сделать
+     надёжно: iOS Safari игнорирует track.volume, а Web Audio на iPhone
+     глохнет от переключателя беззвучного режима — обычный <audio> нет. */
 
   /* Перемотка на нужную секунду.
      Пока файл не «seekable» (медленная сеть; хостинг без Range-запросов)
@@ -56,25 +59,14 @@
 
   function startMusic () {
     if (!track) return;
-    try { track.volume = 0; } catch (e) {}
+    try { track.volume = CFG.audioPeak; } catch (e) {}
     seekStart();
 
     var p = track.play();
     if (p && p.then) {
-      p.then(function () { audioOK = true; fadeIn(); showSound(); })
+      p.then(function () { audioOK = true; showSound(); })
        .catch(function () { audioOK = false; });
-    } else { audioOK = true; fadeIn(); showSound(); }
-  }
-
-  function fadeIn () {
-    var t0 = performance.now();
-    clearInterval(fadeTimer);
-    fadeTimer = setInterval(function () {
-      var k = Math.min(1, (performance.now() - t0) / CFG.fadeMs);
-      var eased = Math.pow(k, 1.7);            // медленно в начале, но фраза уже слышна
-      try { track.volume = eased * CFG.audioPeak; } catch (e) {}
-      if (k >= 1) clearInterval(fadeTimer);
-    }, 60);
+    } else { audioOK = true; showSound(); }
   }
 
   function showSound () {

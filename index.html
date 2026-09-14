@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23EBE5DA'/%3E%3Cpath d='M36 10c7 0 12 5 12 10 0 6-4 9-4 13 2 14 8 26 14 31H44c-4-8-9-19-12-27-3-7-6-12-8-15-3-4-6-8-6-13 0-6 6-9 12-9z' fill='%23D8D2C8' stroke='%238A8277' stroke-width='1.6'/%3E%3Cpath d='M27 12c-6 3-16 10-22 15-2 2 0 5 3 4 8-3 17-8 22-12 2-3 1-8-3-7z' fill='%23343029'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="css/style.css?v=202609150015">
+<link rel="stylesheet" href="css/style.css?v=202609150030">
 <noscript><style>
   #cover,#sound,.burger{display:none!important}
   body.is-locked{position:static!important;overflow:auto!important;height:auto!important;inset:auto!important}
@@ -169,9 +169,8 @@
   <section class="s s--last" id="contacts" data-rv>
     <div class="s__in">
       <h2 class="h">Контакты</h2>
-      <span class="rule"></span>
       <p class="body body--sm">все организационные вопросы можно доверить Ирине. она также поможет, если вы захотите подготовить для нас сюрприз.</p>
-      <p class="coord"><span>Ирина</span><span class="rule rule--inline"></span></p>
+      <p class="coord"><span>Ирина</span></p>
       <a class="btn" href="https://t.me/irina_raputa" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 4.2 2.9 11.4c-.9.35-.9 1.6.02 1.9l4.6 1.45 1.77 5.4c.24.73 1.17.92 1.67.34l2.5-2.9 4.8 3.55c.62.46 1.5.12 1.66-.64l3.2-14.8c.17-.8-.62-1.48-1.37-1.2Z" fill="currentColor" opacity=".92"/></svg>
         связаться в Telegram
@@ -204,10 +203,10 @@
                      transform="translate(-0.7,-0.9)"/>
           </g>
         </defs>
-        <!-- тени на бумаге -->
-        <g filter="url(#ring-sh)" opacity=".16">
-          <ellipse cx="43" cy="45" rx="26" ry="18" fill="#8C8577" transform="rotate(-12 43 45)"/>
-          <ellipse cx="75" cy="49" rx="26" ry="18" fill="#8C8577" transform="rotate(9 75 49)"/>
+        <!-- тени на бумаге — только под ободом, внутри колец фон остаётся чистым -->
+        <g filter="url(#ring-sh)" opacity=".18" fill="none" stroke="#8C8577" stroke-width="8">
+          <ellipse cx="43" cy="45" rx="26" ry="18.5" transform="rotate(-12 43 45)"/>
+          <ellipse cx="75" cy="49" rx="26" ry="18.5" transform="rotate(9 75 49)"/>
         </g>
         <use href="#ringL"/>
         <g transform="rotate(9 74 44)">
@@ -248,6 +247,6 @@
   <source src="assets/audio/osenniy-potseluy.m4a" type="audio/mp4">
 </audio>
 
-<script src="js/main.js?v=202609150015"></script>
+<script src="js/main.js?v=202609150030"></script>
 </body>
 </html>
