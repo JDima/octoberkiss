@@ -153,7 +153,7 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
 @media (prefers-reduced-motion: reduce){
   [data-rv] > *:not(.frame){ opacity:1 !important; transform:none !important; transition:none !important; }
   .frame{ opacity:1 !important; }
-  .env-wrap,.cover__hint,.bird{ animation:none !important; }
+  .env-wrap,.cover__hint{ animation:none !important; }
 }
 
 /* ─────────────  ТИПОГРАФИКА  ───────────── */
@@ -236,20 +236,6 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
 .s--last{ padding-top:calc(var(--bar) + 5svh); padding-bottom:9svh; }
 .s--last .s__in{ gap:18px; }
 .s--last .h--sm{ margin-top:16px; margin-bottom:2px; }
-
-/* ─────────────  МАЛЕНЬКИЙ ЛЕБЕДЬ  ───────────── */
-.bird{
-  display:block; width:58px; margin:0 0 8px auto; margin-right:5%; line-height:0;
-  animation:bird-drift 16s ease-in-out infinite;
-}
-.bird img{ width:100%; height:auto; display:block; opacity:.92; }
-@keyframes bird-drift{
-  0%   { transform:translate(0,0)       rotate(0deg); }
-  25%  { transform:translate(-14px,6px) rotate(-3deg); }
-  50%  { transform:translate(7px,-5px)  rotate(2deg); }
-  75%  { transform:translate(16px,4px)  rotate(-2deg); }
-  100% { transform:translate(0,0)       rotate(0deg); }
-}
 
 /* ─────────────  МЕСТО  ───────────── */
 .s--place .s__in{ gap:18px; margin-bottom:42px; }
