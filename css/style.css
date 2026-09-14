@@ -70,7 +70,7 @@ body.menu-open .menu{ opacity:1; visibility:visible; }
 .menu ul{ list-style:none; margin:0; padding:0; text-align:center; }
 .menu li{ margin:0 0 26px; }
 .menu li a{
-  font-size:24px; letter-spacing:.2em; color:var(--ink); text-decoration:none;
+  font-size:22px; letter-spacing:.2em; color:var(--ink); text-decoration:none;
   opacity:0; transform:translateY(14px); display:inline-block;
   transition:opacity .5s ease, transform .5s ease;
 }
@@ -80,7 +80,7 @@ body.menu-open .menu li:nth-child(2) a{ transition-delay:.16s }
 body.menu-open .menu li:nth-child(3) a{ transition-delay:.22s }
 body.menu-open .menu li:nth-child(4) a{ transition-delay:.28s }
 body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
-.menu__foot{ margin:0; font-size:14px; letter-spacing:.2em; color:var(--ink-soft); opacity:.75; }
+.menu__foot{ margin:0; font-size:13px; letter-spacing:.2em; color:var(--ink-soft); opacity:.75; }
 
 /* ─────────────  ОБЛОЖКА  ───────────── */
 #cover{
@@ -116,7 +116,7 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
   position:absolute; left:0; right:0; text-align:center;
   bottom:calc(74px + env(safe-area-inset-bottom));
   z-index:3; pointer-events:none;
-  font-size:15px; letter-spacing:.24em; word-spacing:.36em; text-transform:uppercase; color:var(--ink);
+  font-size:13.5px; letter-spacing:.24em; word-spacing:.36em; text-transform:uppercase; color:var(--ink);
   animation:hint-pulse 3.4s ease-in-out infinite;
   transition:opacity .5s ease, transform .5s ease;
 }
@@ -151,23 +151,23 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
 }
 
 /* ─────────────  ТИПОГРАФИКА  ───────────── */
-.names{ margin:0; font-weight:500; font-size:40px; letter-spacing:.07em; }
+.names{ margin:0; font-weight:500; font-size:36px; letter-spacing:.07em; }
 .amp{ letter-spacing:0; }
 
-.body{ margin:0; font-size:24px; line-height:1.5; letter-spacing:.012em; }
-.body--sm{ font-size:19px; line-height:1.5; }
+.body{ margin:0; font-size:21.5px; line-height:1.5; letter-spacing:.012em; }
+.body--sm{ font-size:17.5px; line-height:1.5; }
 .body em{ font-style:italic; }
 
-.date{ margin:4px 0 0; font-size:34px; letter-spacing:.05em; white-space:nowrap; }
-.accent{ margin:0; font-size:24px; letter-spacing:.015em; }
-.closing{ margin:2px 0 0; font-size:24px; line-height:1.5; }
+.date{ margin:4px 0 0; font-size:30px; letter-spacing:.05em; white-space:nowrap; }
+.accent{ margin:0; font-size:21.5px; letter-spacing:.015em; }
+.closing{ margin:2px 0 0; font-size:21.5px; line-height:1.5; }
 
 .h{
   margin:0; font-weight:500;
-  font-size:29px; letter-spacing:.26em; word-spacing:.34em; text-transform:uppercase;
+  font-size:26px; letter-spacing:.26em; word-spacing:.34em; text-transform:uppercase;
   padding-left:.26em;
 }
-.h--sm{ font-size:18px; letter-spacing:.28em; word-spacing:.42em; }
+.h--sm{ font-size:16.5px; letter-spacing:.28em; word-spacing:.42em; }
 
 .rule{ display:block; width:46px; height:1px; background:var(--line); flex:none; opacity:.85; }
 .rule--inline{ width:54px; margin-left:18px; }
@@ -190,23 +190,29 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
 .chev svg{ width:30px; height:16px; animation:chev-bob 2.8s ease-in-out infinite; }
 @keyframes chev-bob{ 0%,100%{transform:translateY(0);opacity:.65} 50%{transform:translateY(5px);opacity:1} }
 .chev__stem{ display:block; width:1px; height:54px; background:var(--line); }
-.chev__cap{ font-size:14px; letter-spacing:.22em; word-spacing:.34em; text-transform:uppercase; }
+.chev__cap{ font-size:13px; letter-spacing:.22em; word-spacing:.34em; text-transform:uppercase; }
 .chev--onphoto{ color:#EFE9DE; opacity:.9; }
 /* ─────────────  ОРНАМЕНТАЛЬНАЯ РАМКА  ───────────── */
 .s--hero{ justify-content:center; }
 .s--hero picture{ display:contents; }
+/* рамка стоит на месте: её размер и положение заданы от экрана,
+   а не от текста внутри — размер шрифта на неё не влияет.
+   svh — «короткий» вьюпорт: он не меняется, когда при прокрутке
+   уезжает адресная строка, поэтому рамка не дёргается.
+   vh — запасной вариант для браузеров без svh */
 .frame{
   position:absolute; inset:0; margin:auto;
-  width:min(100%, 440px); max-height:78svh;
+  width:min(100%, 440px);
+  max-height:78vh; max-height:78svh;
   height:auto; object-fit:contain;
   pointer-events:none; user-select:none; z-index:0;
   opacity:0; transition:opacity 1.4s ease .25s;
 }
 [data-rv].in .frame{ opacity:.34; }
 .s--hero .s__in{ position:relative; z-index:1; max-width:250px; }
-.s--hero .names{ font-size:36px; }
-.s--hero .body{ font-size:22px; }
-.s--hero .date{ font-size:31px; }
+.s--hero .names{ font-size:32px; }
+.s--hero .body{ font-size:19.5px; }
+.s--hero .date{ font-size:27.5px; }
 
 /* разделы с выключкой влево */
 .s--left{ padding-left:20px; padding-right:20px; }
@@ -218,7 +224,7 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
 /* длинные разделы — плотнее, чтобы помещались в один экран */
 .s--dense{ padding-top:calc(var(--bar) + 4svh); padding-bottom:9svh; }
 .s--dense .s__in{ gap:15px; }
-.s--dense .body{ font-size:22px; line-height:1.46; }
+.s--dense .body{ font-size:20px; line-height:1.46; }
 
 .chev--end{ pointer-events:none; }
 .s--last{ padding-top:calc(var(--bar) + 5svh); padding-bottom:9svh; }
@@ -255,7 +261,7 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
 /* ─────────────  ПАЛИТРА  ───────────── */
 .palette-wrap{ width:100%; max-width:358px; margin:18px auto 0; }
 .palette__t{
-  margin:0 0 16px; font-size:18px; letter-spacing:.26em; word-spacing:.34em;
+  margin:0 0 16px; font-size:16.5px; letter-spacing:.26em; word-spacing:.34em;
   text-transform:uppercase; text-align:center; padding-left:.28em;
 }
 .palette{ display:flex; gap:5px; width:100%; }
@@ -266,27 +272,27 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
 }
 .sw figcaption{
   display:block; padding:9px 1px 0;
-  font-size:10px; letter-spacing:.04em; text-transform:uppercase;
+  font-size:9.5px; letter-spacing:.04em; text-transform:uppercase;
   text-align:center; line-height:1.3; opacity:.85;
 }
 
 /* ─────────────  ПРОГРАММА  ───────────── */
 .prog{ list-style:none; margin:6px 0 0; padding:0; width:100%; max-width:352px; }
 .prog li{ display:flex; align-items:baseline; gap:10px; padding:14px 0; }
-.prog__t{ font-size:21.5px; white-space:nowrap; }
+.prog__t{ font-size:19.5px; white-space:nowrap; }
 .prog__dots{
   flex:1 1 auto; height:1px; align-self:center;
   background-image:radial-gradient(circle, var(--line) .8px, transparent .9px);
   background-size:5px 1px; background-repeat:repeat-x;
 }
-.prog__h{ font-size:21.5px; font-variant-numeric:tabular-nums; }
+.prog__h{ font-size:19.5px; font-variant-numeric:tabular-nums; }
 
 /* ─────────────  КОНТАКТЫ  ───────────── */
-.coord{ margin:0; display:flex; align-items:center; justify-content:center; font-size:31px; letter-spacing:.03em; }
+.coord{ margin:0; display:flex; align-items:center; justify-content:center; font-size:27.5px; letter-spacing:.03em; }
 .btn{
   display:inline-flex; align-items:center; gap:12px;
   padding:15px 30px; border-radius:999px;
-  font-size:14px; letter-spacing:.18em; word-spacing:.3em; text-transform:uppercase;
+  font-size:13px; letter-spacing:.18em; word-spacing:.3em; text-transform:uppercase;
   color:var(--ink); background:transparent; text-decoration:none;
   border:1px solid var(--line);
   transition:background .35s ease, color .35s ease, border-color .35s ease, transform .25s ease;
@@ -300,9 +306,9 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
 
 .cd{ display:flex; align-items:flex-start; justify-content:center; gap:14px; width:100%; }
 .cd__u{ display:flex; flex-direction:column; align-items:center; gap:8px; min-width:62px; }
-.cd__n{ font-size:46px; letter-spacing:.01em; font-variant-numeric:tabular-nums; line-height:1; }
-.cd__l{ font-size:12px; letter-spacing:.12em; text-transform:uppercase; opacity:.85; }
-.cd__done{ margin:0; font-size:21px; font-style:italic; }
+.cd__n{ font-size:41px; letter-spacing:.01em; font-variant-numeric:tabular-nums; line-height:1; }
+.cd__l{ font-size:11px; letter-spacing:.12em; text-transform:uppercase; opacity:.85; }
+.cd__done{ margin:0; font-size:19px; font-style:italic; }
 
 /* ─────────────  ЗВУК  ───────────── */
 .sound{
@@ -323,12 +329,12 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
 /* ─────────────  адаптив  ───────────── */
 @media (max-width:360px){
   :root{ --gut:20px; }
-  .body,.accent,.closing{ font-size:21px; }
-  .names{ font-size:32px; } .date{ font-size:28px; }
-  .h{ font-size:24px; letter-spacing:.22em; }
-  .cd{ gap:9px; } .cd__u{ min-width:46px; } .cd__n{ font-size:32px; }
-  .sw figcaption{ font-size:6.6px; letter-spacing:.02em; }
-  .prog__t,.prog__h{ font-size:19px; }
+  .body,.accent,.closing{ font-size:19px; }
+  .names{ font-size:29px; } .date{ font-size:25px; }
+  .h{ font-size:21.5px; letter-spacing:.22em; }
+  .cd{ gap:9px; } .cd__u{ min-width:46px; } .cd__n{ font-size:29px; }
+  .sw figcaption{ font-size:6.2px; letter-spacing:.02em; }
+  .prog__t,.prog__h{ font-size:17.5px; }
 }
 @media (min-width:520px){
   body{ background:#E3DCCD; }
