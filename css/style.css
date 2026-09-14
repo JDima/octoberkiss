@@ -243,8 +243,10 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
 
 /* ─────────────  МЕСТО  ───────────── */
 .s--place .s__in{ gap:18px; }
+/* на всю ширину колонки: контент + поля по бокам. без margin-трюков —
+   флекс центрирует по margin-box, и отрицательный margin сдвигал фото */
 .venue{
-  margin:var(--gap) 0 0; width:100vw; margin-left:calc(50% - 50vw);
+  margin:var(--gap) 0 0; width:calc(100% + 2 * var(--gut));
   aspect-ratio:4/5; max-height:45svh; overflow:hidden; position:relative;
 }
 .venue img{ width:100%; height:100%; object-fit:cover; display:block; }
@@ -338,5 +340,4 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
   #site,.bar,#cover{ max-width:430px; margin:0 auto; }
   .bar{ left:50%; transform:translateX(-50%); right:auto; width:100%; }
   #cover{ left:50%; transform:translateX(-50%); right:auto; width:100%; }
-  .venue{ width:430px; margin-left:calc(50% - 215px); }
 }
