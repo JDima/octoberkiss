@@ -98,8 +98,10 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
   position:absolute; inset:0;
   animation:env-breathe 9s ease-in-out infinite;
 }
-/* конверт заполняет экран целиком — так не видно стыков бумаги */
-.env{ width:100%; height:100%; object-fit:cover; object-position:50% 55%; display:block; }
+/* конверт лежит на бумаге целиком, как на оригинальном рисунке;
+   фон вокруг него в самом файле — цвет --paper, поэтому стыка не видно.
+   низ конверта в оригинале обрезан — в файле он растворён в бумаге */
+.env{ width:100%; height:100%; object-fit:cover; object-position:50% 50%; display:block; }
 @keyframes env-breathe{
   0%,100%{ transform:scale(1); }
   50%    { transform:scale(1.008); }
