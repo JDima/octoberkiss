@@ -11,6 +11,7 @@
   --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
 
   --gut: 26px;
+  --gap: 56px;   /* один отступ между блоками: текст → стрелка → следующий заголовок */
   --bar: 54px;
   --vh: 100svh;
 }
@@ -128,7 +129,10 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
 }
 @keyframes hint-pulse{ 0%,100%{opacity:.6} 50%{opacity:1} }
 
-/* ─────────────  СЕКЦИИ  ───────────── */
+/* ─────────────  СЕКЦИИ  ─────────────
+   разделы идут потоком с одинаковым отступом; во весь экран — только первый.
+   раньше каждый раздел был min-height:100svh с центровкой — из-за этого
+   пустота вокруг короткого блока была больше, чем вокруг длинного */
 #site{
   position:relative; z-index:2;
   opacity:0; visibility:hidden; transition:opacity 1.1s ease .15s;
@@ -136,14 +140,12 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
 #site.is-live{ opacity:1; visibility:visible; }
 
 .s{
-  min-height:var(--vh);
-  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  display:flex; flex-direction:column; align-items:center;
   text-align:center; position:relative;
-  padding:calc(var(--bar) + 8svh) var(--gut) 13svh;
+  padding:var(--gap) var(--gut) 0;
 }
 .s__in{ display:flex; flex-direction:column; align-items:center; gap:24px; width:100%; max-width:358px; }
-.s--place{ padding-bottom:0; justify-content:flex-start; padding-top:calc(var(--bar) + 9svh); }
-.s--last{ padding-bottom:8svh; }
+.s--last{ padding-bottom:calc(var(--gap) + 24px + env(safe-area-inset-bottom)); }
 
 [data-rv] > *:not(.frame){ opacity:0; transform:translateY(7px); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.3,1); }
 [data-rv].in > *:not(.frame){ opacity:1; transform:none; }
@@ -187,8 +189,7 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
 
 /* ─────────────  ШЕВРОН  ───────────── */
 .chev{
-  position:absolute; left:50%; bottom:calc(30px + env(safe-area-inset-bottom));
-  transform:translateX(-50%); z-index:4;
+  margin:var(--gap) auto 0; z-index:4;
   display:flex; flex-direction:column; align-items:center; gap:12px;
   color:var(--ink); text-decoration:none; opacity:.7;
   transition:opacity .5s ease, transform .5s ease;
@@ -197,9 +198,15 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
 @keyframes chev-bob{ 0%,100%{transform:translateY(0);opacity:.65} 50%{transform:translateY(5px);opacity:1} }
 .chev__stem{ display:block; width:1px; height:54px; background:var(--line); }
 .chev__cap{ font-size:13px; letter-spacing:.22em; word-spacing:.34em; text-transform:uppercase; }
-.chev--onphoto{ color:#EFE9DE; opacity:.9; }
 /* ─────────────  ОРНАМЕНТАЛЬНАЯ РАМКА  ───────────── */
-.s--hero{ justify-content:center; }
+.s--hero{
+  min-height:var(--vh); justify-content:center;
+  padding:calc(var(--bar) + 8svh) var(--gut) 13svh;
+}
+.s--hero .chev{
+  position:absolute; left:50%; bottom:calc(30px + env(safe-area-inset-bottom));
+  transform:translateX(-50%); margin:0;
+}
 .s--hero picture{ display:contents; }
 /* рамка стоит на месте: её размер и положение заданы от экрана,
    а не от текста внутри — размер шрифта на неё не влияет.
@@ -227,20 +234,17 @@ body.menu-open .menu li:nth-child(5) a{ transition-delay:.34s }
 .s--left .accent{ text-align:left; }
 .s--left .h{ align-self:center; }
 
-/* длинные разделы — плотнее, чтобы помещались в один экран */
-.s--dense{ padding-top:calc(var(--bar) + 4svh); padding-bottom:9svh; }
+/* длинные разделы — чуть плотнее набор */
 .s--dense .s__in{ gap:15px; }
 .s--dense .body{ font-size:20px; line-height:1.46; }
 
-.chev--end{ pointer-events:none; }
-.s--last{ padding-top:calc(var(--bar) + 5svh); padding-bottom:9svh; }
 .s--last .s__in{ gap:18px; }
 .s--last .h--sm{ margin-top:16px; margin-bottom:2px; }
 
 /* ─────────────  МЕСТО  ───────────── */
-.s--place .s__in{ gap:18px; margin-bottom:42px; }
+.s--place .s__in{ gap:18px; }
 .venue{
-  margin:auto 0 0; width:100vw; margin-left:calc(50% - 50vw);
+  margin:var(--gap) 0 0; width:100vw; margin-left:calc(50% - 50vw);
   aspect-ratio:4/5; max-height:45svh; overflow:hidden; position:relative;
 }
 .venue img{ width:100%; height:100%; object-fit:cover; display:block; }
